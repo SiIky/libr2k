@@ -1,0 +1,8 @@
+[package]
+name = "r2k-lib"
+version = "0.1.0"
+authors = ["SiIky <siikyatgith@openaliasbox.org>"]
+
+[dependencies]
+unicode-normalization = "*"
+unicode-jp = "*"
