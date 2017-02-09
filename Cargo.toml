@@ -1,5 +1,5 @@
 [package]
-name = "r2k-lib"
+name = "libr2k"
 version = "0.1.0"
 authors = ["SiIky <siikyatgith@openaliasbox.org>"]
 

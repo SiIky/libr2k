@@ -1,8 +1,12 @@
+extern crate libr2k;
+
+use libr2k::dict;
+
 #[cfg(test)]
-#[ignore]
 #[test]
+#[ignore]
 fn test_1() {
-    let d: super::dict::Dict = super::get_dict();
+    let d: dict::Dict = dict::Dict::new();
     let input: String =
         "Kimi ni kirawareta kimi no Chinmoku ga kikoeta\nKimi no me no mae ni iru no ni Tooku \
          kara kikoeta\nHasshingen wo sagashitara Tadoritsuita mizutamari\nKore ga hito no kokoro \
@@ -135,16 +139,15 @@ fn test_1() {
          (Baby, Bye Bye)\nMou, narenai yo Kitto\nBye Bye Girl Kagayaki dake wo\nIma demo \
          Nokoshite Girl\n(I was in love with you my girl)\n(I was in love)"
             .to_string();
-    let output: String = super::do_work(&d, &input);
+    let output: String = libr2k::do_work(&d, &input);
     assert!(input != output);
 }
 
 #[test]
 fn test_2() {
-    let d: super::dict::Dict = super::get_dict();
+    let d: dict::Dict = dict::Dict::new();
     let input: String = "kan'i kani".to_string();
-    let output: String = super::do_work(&d, &input);
+    let output: String = libr2k::to_kana(&d, &input);
     let should_be: String = "かん'い かに".to_string();
-    assert!(input != output);
-    assert!(output == should_be);
+    assert_eq!(output, should_be);
 }
