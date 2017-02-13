@@ -1,12 +1,11 @@
 extern crate libr2k;
 
-use libr2k::dict;
+use libr2k::dict::{Dict, KanaConvertionTable};
 
 #[cfg(test)]
 #[test]
-#[ignore]
-fn test_1() {
-    let d: dict::Dict = dict::Dict::new();
+fn test1() {
+    let d: Dict = Dict::dnew();
     let input: String =
         "Kimi ni kirawareta kimi no Chinmoku ga kikoeta\nKimi no me no mae ni iru no ni Tooku \
          kara kikoeta\nHasshingen wo sagashitara Tadoritsuita mizutamari\nKore ga hito no kokoro \
@@ -41,7 +40,7 @@ fn test_1() {
          miteru kara\nHashitte ike yo\nYorimichi shita tte ii Isoganakutemo ii\nYaritai koto ga \
          aru no wa suteki de\nDare ni mo nai chikara motterun da\nNaita tte ii Kedo Mou ichido \
          kao agete\nHora Nayanderu hima nante nai no sa\nSaa Hashiridase Mada hajimatta bakari \
-         sa\n\nKanjani8 - Ano kotoba ni\nDonna ni ganbattemo kotae ga\nMiete konai toki ga \
+         sa\nKanjani8 - Ano kotoba ni\nDonna ni ganbattemo kotae ga\nMiete konai toki ga \
          aru\nSaki ga mienai genjitsu ni\nFumitodomatte ita\nKizutsuitari Miushinattari\nShidai \
          ni karete yuku\nBoku no daichi ni Kimi no kotoba\nMichishirube ni naru\nHito wa toki ni \
          makesou ni narun dakedo\nHoka no dareka ni Senaka wo osaretari\nFushigi da yo ne Ano \
@@ -70,37 +69,36 @@ fn test_1() {
          iranai\nNandakanda de Yappa suki\nShuujitsu Kimi de OH Ittsu Mai Souru\nKimi no tame ni \
          ikiyou ka\nHoreta mon dakara shikata nai\nTatoe ore ga nibante demo\nRararararara \
          Massorya shou ga nai\nNijikan no machibouke\nSore gurai wa yoshi to shiyou\nTodomesasu \
-         dotakyan mo\nShogetari shinai-i Oikakeru Ittsu Mai Souru\n\nTOKIO - Hitsuyou to \
-         omowareru kasho ni piriodo wo ute\nMona \nTom It's no money cow (Itsu no ma ni ka)\nDave \
-         I got it! AHH! Cool tail!! (Ai ga itakute)\nTom It's no money cow (Itsu no ma ni \
-         ka)\nDave You got it! AHH! Cool tail!! (Yogaritakute)\nMona\nTranslate following words \
-         into English\nand them put your favourite color into [D]\n\nTOKIO - Yatto aeta\nKonna ni \
-         kanjitan da yo Kimi dato wakattan da yo\nKokoro ni tobikonde kita Mabushii deai \
-         sa\nTotsuzen Tegami kaitari Futari de tokei Kaetari\nWaratte Kata wo narabete \
-         Arukihajimeru\nHoshi ni negai kaketa wake ja nai kedo Boku wa\nZutto kimi no koto wo \
-         sagashite ita yo Hitori de koko made kita yo\nYatto aeta bokura dakara\nAsu mo kitto \
-         kono te wo tsunagou\nTsurai toki ga aru to shitemo\nKono mune ni umareta saikou no \
-         dekigoto\nBoku ni wa kimi ga iru kara\nMachi no kaze ga Itsuka kawaru to shitemo Boku \
-         wa\nKitto kimi no namida nugutte itai Ashita wo utatte itai\nYatto aeta bokura \
-         dakara\nFukaku zutto Dakishimeaun da\nTsurai toki ga aru to shitemo\nKono mune ni \
-         umareta saikou no dekigoto\nKimi ni wa boku ga iru kara\nKonna ni kanjitan da yo Kimi \
-         dato wakattan da yo\nKokoro ni tobikonde kita Mabushii deai sa\nFutari de tooku ittari \
-         Toki ni wa nayande mitari\nWaratte Kata wo narabete Arukihajimete yukou\n\nTOKIO - \
-         Watasenai enjeru\nKeep on Rollin' Keep on Goin'\nKimi wo tsurete iku yo\nWakatte Ita no \
-         sa\nKimi wa Kimi wa Saigo no tenshi\nYume nante Kotoba sae\nUbawareta Jidai ni\nCarry \
-         on! Carry on!\n Ai wo shinjitai\nSetsunasa ga Kasoku shite\nKono mune ga Kowareta\nHurry \
-         up! Hurry up!\n Subete Kimi no sei\nKamen no you na Hitogomi no naka kara\nAsu wo \
-         sagashite Bokura wa hashiridasu\nBaby, I want you!\n Keep on Rollin' Keep on \
-         Goin'\nTatakitsuzukeru no sa\nSubete no tobira wo Mune no itami wo\nKeep on Rollin' Keep \
-         on Lovin'\nKimi wo tsurete iku yo\nWakatte Ita no sa\nKimi wa Kimi wa Saigo no \
-         tenshi\nDensetsu ni Naru you na\nKoi wo suru Futari sa\nKiss me now! Kiss me now!\n \
-         Hadaka no kokoro de\nNamida ya uso ni Yogosarete ittemo\nHyakunen kienai Kisu wo boku wa \
-         hoshii\nBaby, I love you!\n Keep on Rollin' Keep on Goin'\nDakara ima shika \
-         nai\nKizutsuku Koto dake Erandemo ii\nKeep on Rollin' Keep on Lovin'\nHidoku \
+         dotakyan mo\nShogetari shinai-i Oikakeru Ittsu Mai Souru\nTOKIO - Hitsuyou to omowareru \
+         kasho ni piriodo wo ute\nMona \nTom It's no money cow (Itsu no ma ni ka)\nDave I got it! \
+         AHH! Cool tail!! (Ai ga itakute)\nTom It's no money cow (Itsu no ma ni ka)\nDave You got \
+         it! AHH! Cool tail!! (Yogaritakute)\nMona\nTranslate following words into English\nand \
+         them put your favourite color into [D]\nTOKIO - Yatto aeta\nKonna ni kanjitan da yo Kimi \
+         dato wakattan da yo\nKokoro ni tobikonde kita Mabushii deai sa\nTotsuzen Tegami kaitari \
+         Futari de tokei Kaetari\nWaratte Kata wo narabete Arukihajimeru\nHoshi ni negai kaketa \
+         wake ja nai kedo Boku wa\nZutto kimi no koto wo sagashite ita yo Hitori de koko made \
+         kita yo\nYatto aeta bokura dakara\nAsu mo kitto kono te wo tsunagou\nTsurai toki ga aru \
+         to shitemo\nKono mune ni umareta saikou no dekigoto\nBoku ni wa kimi ga iru kara\nMachi \
+         no kaze ga Itsuka kawaru to shitemo Boku wa\nKitto kimi no namida nugutte itai Ashita wo \
+         utatte itai\nYatto aeta bokura dakara\nFukaku zutto Dakishimeaun da\nTsurai toki ga aru \
+         to shitemo\nKono mune ni umareta saikou no dekigoto\nKimi ni wa boku ga iru kara\nKonna \
+         ni kanjitan da yo Kimi dato wakattan da yo\nKokoro ni tobikonde kita Mabushii deai \
+         sa\nFutari de tooku ittari Toki ni wa nayande mitari\nWaratte Kata wo narabete \
+         Arukihajimete yukou\nTOKIO - Watasenai enjeru\nKeep on Rollin' Keep on Goin'\nKimi wo \
+         tsurete iku yo\nWakatte Ita no sa\nKimi wa Kimi wa Saigo no tenshi\nYume nante Kotoba \
+         sae\nUbawareta Jidai ni\nCarry on! Carry on!\n Ai wo shinjitai\nSetsunasa ga Kasoku \
+         shite\nKono mune ga Kowareta\nHurry up! Hurry up!\n Subete Kimi no sei\nKamen no you na \
+         Hitogomi no naka kara\nAsu wo sagashite Bokura wa hashiridasu\nBaby, I want you!\n Keep \
+         on Rollin' Keep on Goin'\nTatakitsuzukeru no sa\nSubete no tobira wo Mune no itami \
+         wo\nKeep on Rollin' Keep on Lovin'\nKimi wo tsurete iku yo\nWakatte Ita no sa\nKimi wa \
+         Kimi wa Saigo no tenshi\nDensetsu ni Naru you na\nKoi wo suru Futari sa\nKiss me now! \
+         Kiss me now!\n Hadaka no kokoro de\nNamida ya uso ni Yogosarete ittemo\nHyakunen kienai \
+         Kisu wo boku wa hoshii\nBaby, I love you!\n Keep on Rollin' Keep on Goin'\nDakara ima \
+         shika nai\nKizutsuku Koto dake Erandemo ii\nKeep on Rollin' Keep on Lovin'\nHidoku \
          dakishimetai\nKimi shika Nai no sa\nToki ga Kureta Saigo no tenshi\nKeep on Rollin' Keep \
          on Goin'\nHashiritsuzukeru no sa\nTsukanda Kono te wo Hanashi wa shinai\nKeep on Rollin' \
          Keep on Lovin'\nKimi wo tsurete iku yo\nWakatte Ita no sa\nKimi wa Kimi wa Saigo no \
-         tenshi\n\nTOKIO - Kono yoru wo koete\nKimi no kanashimi wo\nSubete ubaitai\nSuki nan da \
+         tenshi\nTOKIO - Kono yoru wo koete\nKimi no kanashimi wo\nSubete ubaitai\nSuki nan da \
          Sore dake sa Hold me tight Hold me tight\nKono yoru wo koete\nNakigoe de kireta Denwa wo \
          nagedashi\nMado kara tobiori Boku wa kakedashita\nNemutta Machinami Donna ni \
          isoidemo\nOmoi no Hayasa ni Ashi ga oitsukanakute\nWoo- Kokoro dake ja \
@@ -116,7 +114,7 @@ fn test_1() {
          wo\nKurikaeshiteru\nIt's all right Tsubasa wo kurenai\nIt's all right Sekai no \
          katasumi\nMitsumetete Hoshii no sa Hold me tight Hold me tight\nIt's all right Tarinai \
          mono nado\nIt's all right Ikutsumo aru kedo\nDakishimete Itai no sa Baby, it's you Yes, \
-         it's you\nKimi wo shinjiteru\nBoku wo shinjitai\nKono yoru wo koete\n\nTOKIO - Aitsu ni \
+         it's you\nKimi wo shinjiteru\nBoku wo shinjitai\nKono yoru wo koete\nTOKIO - Aitsu ni \
          yoroshiku\nHassha no beru ga naru yo\nMou ikanakucha\nShinyuu no omae dakara\nDengon wo \
          takusu yo\nAitsu ni itte kure yo\nDaisuki datta\nSayonara mo ienai mama\nTooi machi ni \
          iku kedo\nOmoide wo Thank you, woo my girl\nTsurai kedo Good-by Honto no sotsugyou \
@@ -128,8 +126,8 @@ fn test_1() {
          you,\nwoo my love\nFurimukazu Good-by\nManatsu no sotsugyou sa\nFutari no machinami \
          ga\nTooku ni kieteku yo\nSekai de ichiban suteki na\nShiawase inoru yo\nIchido wa dare \
          datte\nMukaeru tabidachi sa\nKosame ni nureteru hodou wo\nNamida de kaketemo\nAitsu ni \
-         yoroshiku\n\nTOKIO - Girl\nGirl, usotsuki na kimi Ima mo\nUhm- Oboete iru yo \
-         Zutto\nGirl, sayonara iezu Kimi wa\nUhm- Boku wo miagete Naita ne\nYume wo kazoete \
+         yoroshiku\nTOKIO - Girl\nGirl, usotsuki na kimi Ima mo\nUhm- Oboete iru yo Zutto\nGirl, \
+         sayonara iezu Kimi wa\nUhm- Boku wo miagete Naita ne\nYume wo kazoete \
          Dakishimeatta\nItsumo, itsu demo\nKimi wo mitsumeteta\nBye Bye Tomadoinagara (Baby, Bye \
          Bye Uh-)\nTada, kata wo daite ita\nBye Bye Itsuka wa kimi ga\nYuku no wo shitteta \
          Girl....\n (I was in love with you my girl)\n(I was in love)\nGirl, saigo ni kureta Kiss \
@@ -139,15 +137,39 @@ fn test_1() {
          (Baby, Bye Bye)\nMou, narenai yo Kitto\nBye Bye Girl Kagayaki dake wo\nIma demo \
          Nokoshite Girl\n(I was in love with you my girl)\n(I was in love)"
             .to_string();
-    let output: String = libr2k::do_work(&d, &input);
+
+    let output: String = libr2k::to_kana(&d, &input);
     assert!(input != output);
 }
 
 #[test]
-fn test_2() {
-    let d: dict::Dict = dict::Dict::new();
+fn test2() {
+    let d: Dict = Dict::dnew();
     let input: String = "kan'i kani".to_string();
-    let output: String = libr2k::to_kana(&d, &input);
-    let should_be: String = "かん'い かに".to_string();
-    assert_eq!(output, should_be);
+
+    let kana: String = libr2k::to_kana(&d, &input);
+    let hira: String = libr2k::to_hiragana(&d, &input);
+
+    let should_be: String = "かん'いかに".to_string();
+
+    assert_eq!(kana, should_be);
+    assert_eq!(hira, should_be);
+}
+
+#[test]
+fn test3() {
+    let d: Dict = Dict::dnew();
+
+    let input: Vec<String> = (vec!["ka", "shi", "i", "sa"])
+        .iter()
+        .map(|s| s.to_string())
+        .map(|s| libr2k::convert_syllable(&d, &s))
+        .collect();
+
+    let should_be: Vec<String> = (vec!["か", "し", "い", "さ"])
+        .iter()
+        .map(|s| s.to_string())
+        .collect();
+
+    assert_eq!(input, should_be);
 }
