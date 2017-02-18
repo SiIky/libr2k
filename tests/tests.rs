@@ -160,16 +160,27 @@ fn test2() {
 fn test3() {
     let d: Dict = Dict::dnew();
 
-    let input: Vec<String> = (vec!["ka", "shi", "i", "sa"])
+    let input: Vec<String> = (vec!["ka", "shi", "i", "sa", "さ"])
         .iter()
         .map(|s| s.to_string())
         .map(|s| libr2k::convert_syllable(&d, &s))
         .collect();
 
-    let should_be: Vec<String> = (vec!["か", "し", "い", "さ"])
+    let should_be: Vec<String> = (vec!["か", "し", "い", "さ", "さ"])
         .iter()
         .map(|s| s.to_string())
         .collect();
+
+    assert_eq!(input, should_be);
+}
+
+#[test]
+#[ignore]
+fn test4() {
+    let d: Dict = Dict::dnew();
+
+    let input: String = libr2k::to_kana(&d, &"ひ ゚ひ ゙んは ゙".to_string());
+    let should_be: String = "ひﾟひ゛んは ゙".to_string();
 
     assert_eq!(input, should_be);
 }

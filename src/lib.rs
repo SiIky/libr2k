@@ -1,5 +1,5 @@
-// do_work :: Dict -> String -> String
-// do_work d s = concat $ map (f d) (words s)
+// gen_convert :: Dict -> String -> String
+// gen_convert d s = concat $ map (f d) (words s)
 //     where f = (\(d, w) -> concat $ map (convert_syllable d) (syllables w)
 
 // syllables :: Dict -> String -> [String]
@@ -18,18 +18,20 @@
 //          cond = aux max d s
 
 // to_hiragana :: Dict -> String -> String
-// to_hiragana d h = do_work d (to_lowercase h)
+// to_hiragana d = (gen_convert d) . to_lowercase
 
 // to_katakana :: Dict -> String -> String
-// to_katakana d k = do_work d (to_uppercase k)
+// to_katakana d = (gen_convert d) . to_uppercase
 
 // to_kana :: Dict -> String -> String
-// to_kana = do_work
+// to_kana = gen_convert
 
 use std::cmp;
 
-pub mod dict;
+extern crate kana;
+use kana::Kana;
 
+pub mod dict;
 use dict::Dict;
 
 pub fn to_hiragana(d: &Dict, s: &String) -> String {
@@ -50,8 +52,8 @@ pub fn to_kana(d: &Dict, s: &String) -> String {
 fn gen_convert(d: &Dict, s: &String) -> String {
     let mut ret: String = String::new();
 
-    for w in s.split_whitespace() {
-        let w: String = normalize(&w.to_string());
+    for w in normalize(s).split_whitespace() {
+        let w: String = choose_kana(&w.to_string());
         let ss: Vec<String> = syllables(&d, &w)
             .iter()
             .map(|ref s| convert_syllable(d, &s))
@@ -107,18 +109,31 @@ fn is_syllable(d: &Dict, k: &String) -> bool {
 
 // Searches for uppercase characters in a String and, if it finds any, turns the whole String to
 // uppercase.
-fn normalize(s: &String) -> String {
+fn choose_kana(s: &String) -> String {
     match s.chars().fold(false, |acc, c| acc || c.is_uppercase()) {
         true => s.to_uppercase(),
         false => s.to_string(),
     }
 }
 
+fn normalize(s: &String) -> String {
+    let k = Kana::init();
+    let mut ret: String = kana::nowidespace(s.as_str());
+
+    ret = kana::nowideyen(ret.as_str());
+    ret = kana::wide2ascii(ret.as_str());
+
+    ret = k.combine(ret.as_str());
+    ret = k.half2kana(ret.as_str());
+
+    ret
+}
+
 // Converts a String (expected to be a syllable) to kana.
 pub fn convert_syllable(d: &Dict, ow: &String) -> String {
     // <pingveno> Because String impls Borrow<str>
     // `&ow.to_string()` => `ow`
-    match d.get(&normalize(&ow)) {
+    match d.get(ow) {
         Some(c) => c.clone(),
         None => ow.clone(),
     }
