@@ -2,7 +2,7 @@
 name = "libr2k"
 version = "0.1.0"
 authors = ["SiIky <siikyatgith@openaliasbox.org>"]
-repository = "https://github.com/siiky/r2k-lib"
+repository = "https://github.com/siiky/libr2k"
 readme = "README.md"
 license = "Unlicense"
 
