@@ -1,0 +1,21 @@
+# Dictionary
+
+ - [X] Punctuation
+ - [ ] Hiragana
+     - [ ] Monographs
+         - [X] Diacritics
+         - [ ] Pauses (small tsu)
+     - [ ] Digraphs
+         - [X] Diacritics
+         - [ ] Pauses (small tsu)
+ - [ ] Katakana
+     - [ ] Monographs
+         - [X] Diacritics
+         - [X] Long vowels
+         - [ ] Pauses (small tsu)
+             - [ ] Long vowels
+     - [ ] Digraphs
+         - [X] Diacritics
+         - [X] Long vowels
+         - [ ] Pauses (small tsu)
+             - [ ] Long vowels

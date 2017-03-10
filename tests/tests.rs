@@ -6,8 +6,7 @@ use libr2k::dict::{Dict, KanaConvertionTable};
 #[test]
 fn test1() {
     let d: Dict = Dict::dnew();
-    let input: String =
-        "Kimi ni kirawareta kimi no Chinmoku ga kikoeta\nKimi no me no mae ni iru no ni Tooku \
+    let input: String = "Kimi ni kirawareta kimi no Chinmoku ga kikoeta\nKimi no me no mae ni iru no ni Tooku \
          kara kikoeta\nHasshingen wo sagashitara Tadoritsuita mizutamari\nKore ga hito no kokoro \
          nara Fukasa nado wakaranai\nYobareta no ga Boku demo boku ja nai to shitemo\nDou demo ii \
          koto darou Mondai wa betsu ni arun da\nIki wa motsu darou ka Fukai kokoro no soko \
@@ -166,21 +165,8 @@ fn test3() {
         .map(|s| libr2k::convert_syllable(&d, &s))
         .collect();
 
-    let should_be: Vec<String> = (vec!["か", "し", "い", "さ", "さ"])
-        .iter()
-        .map(|s| s.to_string())
-        .collect();
-
-    assert_eq!(input, should_be);
-}
-
-#[test]
-#[ignore]
-fn test4() {
-    let d: Dict = Dict::dnew();
-
-    let input: String = libr2k::to_kana(&d, &"ひ ゚ひ ゙んは ゙".to_string());
-    let should_be: String = "ひﾟひ゛んは ゙".to_string();
+    let should_be: Vec<String> =
+        (vec!["か", "し", "い", "さ", "さ"]).iter().map(|s| s.to_string()).collect();
 
     assert_eq!(input, should_be);
 }

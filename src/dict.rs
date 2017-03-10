@@ -221,11 +221,11 @@ impl KanaConvertionTable for Dict {
                               ("N", "\u{30f3}"), // ン
                               ("VU", "\u{30f4}"), // ヴ
                               // lazy ass aproach to long vowels in Katakana
-                              ("AA", "\u{30a2}\u{30fc}"), // ア
-                              ("II", "\u{30a4}\u{30fc}"), // イ
-                              ("UU", "\u{30a6}\u{30fc}"), // ウ
-                              ("EE", "\u{30a8}\u{30fc}"), // エ
-                              ("OO", "\u{30aa}\u{30fc}"), // オ
+                              ("AA", "\u{30a2}\u{30fc}"), // アー
+                              ("II", "\u{30a4}\u{30fc}"), // イー
+                              ("UU", "\u{30a6}\u{30fc}"), // ウー
+                              ("EE", "\u{30a8}\u{30fc}"), // エー
+                              ("OO", "\u{30aa}\u{30fc}"), // オー
                               // lazy ass aproach to pauses (small tsu) goes here
                               //
                               // Punctuation
@@ -234,9 +234,9 @@ impl KanaConvertionTable for Dict {
                               ("!", "\u{ff01}"), // ！
                               ("?", "\u{ff1f}"), // ？
                               ("-", "\u{30fc}") /* ー */])
-            .into_iter()
-            .map(|(k, v)| (k.to_string(), v.to_string()))
-            .collect();
+                .into_iter()
+                .map(|(k, v)| (k.to_string(), v.to_string()))
+                .collect();
         ret
     }
 }
