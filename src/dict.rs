@@ -2,11 +2,11 @@ use std::collections::HashMap;
 
 pub type Dict = HashMap<String, String>;
 
-pub trait KanaConvertionTable {
+pub trait KanaConversionTable {
     fn dnew() -> Dict;
 }
 
-impl KanaConvertionTable for Dict {
+impl KanaConversionTable for Dict {
     fn dnew() -> Dict {
         let ret: Dict = (vec![// Hiragana
                               ("a", "\u{3042}"), // あ

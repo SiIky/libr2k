@@ -1,6 +1,6 @@
 extern crate libr2k;
 
-use libr2k::dict::{Dict, KanaConvertionTable};
+use libr2k::dict::{Dict, KanaConversionTable};
 
 #[cfg(test)]
 #[test]
