@@ -71,7 +71,7 @@ fn syllables(d: &Dict, original: &String) -> Vec<String> {
     }
 
     let mut ret: Vec<String> = vec![];
-    let maxlen = cmp::min(original.chars().count() + 1, 4);
+    let maxlen = cmp::min(original.chars().count(), d.max_len()) + 1;
 
     for l in (1..maxlen).rev() {
         let tmp: String = original.chars().take(l).collect();

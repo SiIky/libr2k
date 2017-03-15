@@ -4,6 +4,7 @@ pub type Dict = HashMap<String, String>;
 
 pub trait KanaConversionTable {
     fn dnew() -> Dict;
+    fn max_len() -> usize;
 }
 
 impl KanaConversionTable for Dict {
@@ -238,5 +239,9 @@ impl KanaConversionTable for Dict {
                 .map(|(k, v)| (k.to_string(), v.to_string()))
                 .collect();
         ret
+    }
+
+    fn max_len() -> usize {
+        3
     }
 }
