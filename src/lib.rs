@@ -32,7 +32,7 @@ extern crate kana;
 use kana::Kana;
 
 pub mod dict;
-use dict::Dict;
+use dict::{Dict, KanaConversionTable};
 
 pub fn to_hiragana(d: &Dict, s: &String) -> String {
     let s = s.to_lowercase();
