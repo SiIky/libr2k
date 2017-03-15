@@ -7,7 +7,7 @@ const PUNCTUATION_PERIOD: &str = "\u{3002}"; // 。
 const PUNCTUATION_COMMA: &str = "\u{3001}"; // 、
 const PUNCTUATION_EMARK: &str = "\u{ff01}"; // ！
 const PUNCTUATION_QMARK: &str = "\u{ff1f}"; // ？
-const PUNCTUATION_DASH: &str = "\u{30fc}"; // ー TODO
+const PUNCTUATION_CHOONPU: &str = "\u{30fc}"; // ー TODO
 
 //  - [X] Hiragana
 //      - [X] Without diacritics
@@ -190,233 +190,233 @@ pub trait KanaConversionTable {
 impl KanaConversionTable for Dict {
     fn dnew() -> Dict {
         let ret: Dict = (vec![// Hiragana
-                              ("a", "\u{3042}"), // あ
-                              ("i", "\u{3044}"), // い
-                              ("u", "\u{3046}"), // う
-                              ("e", "\u{3048}"), // え
-                              ("o", "\u{304a}"), // お
-                              ("ka", "\u{304b}"), // か
-                              ("ga", "\u{304c}"), // が
-                              ("ki", "\u{304d}"), // き
-                              ("gi", "\u{304e}"), // ぎ
-                              ("ku", "\u{304f}"), // く
-                              ("gu", "\u{3050}"), // ぐ
-                              ("ke", "\u{3051}"), // け
-                              ("ge", "\u{3052}"), // げ
-                              ("ko", "\u{3053}"), // こ
-                              ("go", "\u{3054}"), // ご
-                              ("sa", "\u{3055}"), // さ
-                              ("za", "\u{3056}"), // ざ
-                              ("shi", "\u{3057}"), // し
-                              ("ji", "\u{3058}"), // じ
-                              ("su", "\u{3059}"), // す
-                              ("zu", "\u{305a}"), // ず
-                              ("se", "\u{305b}"), // せ
-                              ("ze", "\u{305c}"), // ぜ
-                              ("so", "\u{305d}"), // そ
-                              ("zo", "\u{305e}"), // ぞ
-                              ("ta", "\u{305f}"), // た
-                              ("da", "\u{3060}"), // だ
-                              ("chi", "\u{3061}"), // ち
-                              ("dji", "\u{3062}"), // ぢ
-                              ("tsu", "\u{3064}"), // つ
-                              ("dzu", "\u{3065}"), // づ
-                              ("te", "\u{3066}"), // て
-                              ("de", "\u{3067}"), // で
-                              ("to", "\u{3068}"), // と
-                              ("do", "\u{3069}"), // ど
-                              ("na", "\u{306a}"), // な
-                              ("ni", "\u{306b}"), // に
-                              ("nu", "\u{306c}"), // ぬ
-                              ("ne", "\u{306d}"), // ね
-                              ("no", "\u{306d}"), // の
-                              ("ha", "\u{306f}"), // は
-                              ("ba", "\u{3070}"), // ば
-                              ("pa", "\u{3071}"), // ぱ
-                              ("hi", "\u{3072}"), // ひ
-                              ("bi", "\u{3073}"), // び
-                              ("pi", "\u{3074}"), // ぴ
-                              ("fu", "\u{3075}"), // ふ
-                              ("bu", "\u{3076}"), // ぶ
-                              ("pu", "\u{3077}"), // ぷ
-                              ("he", "\u{3078}"), // へ
-                              ("be", "\u{3079}"), // べ
-                              ("pe", "\u{307a}"), // ぺ
-                              ("ho", "\u{307b}"), // ほ
-                              ("bo", "\u{307c}"), // ぼ
-                              ("po", "\u{307d}"), // ぽ
-                              ("ma", "\u{307e}"), // ま
-                              ("mi", "\u{307f}"), // み
-                              ("mu", "\u{3080}"), // む
-                              ("me", "\u{3081}"), // め
-                              ("mo", "\u{3082}"), // も
-                              ("ya", "\u{3084}"), // や
-                              ("yu", "\u{3086}"), // ゆ
-                              ("yo", "\u{3088}"), // よ
-                              ("ra", "\u{3089}"), // ら
-                              ("ri", "\u{308a}"), // り
-                              ("ru", "\u{308b}"), // る
-                              ("re", "\u{308c}"), // れ
-                              ("ro", "\u{308d}"), // ろ
-                              ("wa", "\u{308f}"), // わ
-                              ("kya", "\u{304d}\u{3083}"), // き
-                              ("kyu", "\u{304d}\u{3085}"), // き
-                              ("kyo", "\u{304d}\u{3087}"), // き
-                              ("gya", "\u{304e}\u{3083}"), //
-                              ("gyu", "\u{304e}\u{3085}"), //
-                              ("gyo", "\u{304e}\u{3087}"), //
-                              ("sha", "\u{3057}\u{3083}"), //
-                              ("shu", "\u{3057}\u{3085}"), //
-                              ("sho", "\u{3057}\u{3087}"), //
-                              ("ja", "\u{3058}\u{3083}"), //
-                              ("ju", "\u{3058}\u{3085}"), //
-                              ("jo", "\u{3058}\u{3087}"), //
-                              ("cha", "\u{3061}\u{3083}"), //
-                              ("chu", "\u{3061}\u{3085}"), //
-                              ("cho", "\u{3061}\u{3087}"), //
-                              ("dja", "\u{3062}\u{3083}"), //
-                              ("dju", "\u{3062}\u{3085}"), //
-                              ("djo", "\u{3062}\u{3087}"), //
-                              ("hya", "\u{3072}\u{3083}"), //
-                              ("hyu", "\u{3072}\u{3085}"), //
-                              ("hyo", "\u{3072}\u{3087}"), //
-                              ("bya", "\u{3073}\u{3083}"), //
-                              ("byu", "\u{3073}\u{3085}"), //
-                              ("byo", "\u{3073}\u{3087}"), //
-                              ("pya", "\u{3074}\u{3083}"), //
-                              ("pyu", "\u{3074}\u{3085}"), //
-                              ("pyo", "\u{3074}\u{3087}"), //
-                              ("nya", "\u{306b}\u{3083}"), //
-                              ("nyu", "\u{306b}\u{3085}"), //
-                              ("nyo", "\u{306b}\u{3087}"), //
-                              ("wi", "\u{3090}"), // ゐ
-                              ("we", "\u{3091}"), // ゑ
-                              ("wo", "\u{3092}"), // を
-                              ("n", "\u{3093}"), // ん
-                              ("vu", "\u{3094}"), // ゔ
+                              ("a", format!("{}", HIRAGANA_A)), // あ
+                              ("i", format!("{}", HIRAGANA_I)), // い
+                              ("u", format!("{}", HIRAGANA_U)), // う
+                              ("e", format!("{}", HIRAGANA_E)), // え
+                              ("o", format!("{}", HIRAGANA_O)), // お
+                              ("ka", format!("{}", HIRAGANA_KA)), // か
+                              ("ga", format!("{}", HIRAGANA_GA)), // が
+                              ("ki", format!("{}", HIRAGANA_KI)), // き
+                              ("gi", format!("{}", HIRAGANA_GI)), // ぎ
+                              ("ku", format!("{}", HIRAGANA_KU)), // く
+                              ("gu", format!("{}", HIRAGANA_GU)), // ぐ
+                              ("ke", format!("{}", HIRAGANA_KE)), // け
+                              ("ge", format!("{}", HIRAGANA_GE)), // げ
+                              ("ko", format!("{}", HIRAGANA_KO)), // こ
+                              ("go", format!("{}", HIRAGANA_GO)), // ご
+                              ("sa", format!("{}", HIRAGANA_SA)), // さ
+                              ("za", format!("{}", HIRAGANA_ZA)), // ざ
+                              ("shi", format!("{}", HIRAGANA_SHI)), // し
+                              ("ji", format!("{}", HIRAGANA_JI)), // じ
+                              ("su", format!("{}", HIRAGANA_SU)), // す
+                              ("zu", format!("{}", HIRAGANA_ZU)), // ず
+                              ("se", format!("{}", HIRAGANA_SE)), // せ
+                              ("ze", format!("{}", HIRAGANA_ZE)), // ぜ
+                              ("so", format!("{}", HIRAGANA_SO)), // そ
+                              ("zo", format!("{}", HIRAGANA_ZO)), // ぞ
+                              ("ta", format!("{}", HIRAGANA_TA)), // た
+                              ("da", format!("{}", HIRAGANA_DA)), // だ
+                              ("chi", format!("{}", HIRAGANA_CHI)), // ち
+                              ("dji", format!("{}", HIRAGANA_DJI)), // ぢ
+                              ("tsu", format!("{}", HIRAGANA_TSU)), // つ
+                              ("dzu", format!("{}", HIRAGANA_DZU)), // づ
+                              ("te", format!("{}", HIRAGANA_TE)), // て
+                              ("de", format!("{}", HIRAGANA_DE)), // で
+                              ("to", format!("{}", HIRAGANA_TO)), // と
+                              ("do", format!("{}", HIRAGANA_DO)), // ど
+                              ("na", format!("{}", HIRAGANA_NA)), // な
+                              ("ni", format!("{}", HIRAGANA_NI)), // に
+                              ("nu", format!("{}", HIRAGANA_NU)), // ぬ
+                              ("ne", format!("{}", HIRAGANA_NE)), // ね
+                              ("no", format!("{}", HIRAGANA_NO)), // の
+                              ("ha", format!("{}", HIRAGANA_HA)), // は
+                              ("ba", format!("{}", HIRAGANA_BA)), // ば
+                              ("pa", format!("{}", HIRAGANA_PA)), // ぱ
+                              ("hi", format!("{}", HIRAGANA_HI)), // ひ
+                              ("bi", format!("{}", HIRAGANA_BI)), // び
+                              ("pi", format!("{}", HIRAGANA_PI)), // ぴ
+                              ("fu", format!("{}", HIRAGANA_FU)), // ふ
+                              ("bu", format!("{}", HIRAGANA_BU)), // ぶ
+                              ("pu", format!("{}", HIRAGANA_PU)), // ぷ
+                              ("he", format!("{}", HIRAGANA_HE)), // へ
+                              ("be", format!("{}", HIRAGANA_BE)), // べ
+                              ("pe", format!("{}", HIRAGANA_PE)), // ぺ
+                              ("ho", format!("{}", HIRAGANA_HO)), // ほ
+                              ("bo", format!("{}", HIRAGANA_BO)), // ぼ
+                              ("po", format!("{}", HIRAGANA_PO)), // ぽ
+                              ("ma", format!("{}", HIRAGANA_MA)), // ま
+                              ("mi", format!("{}", HIRAGANA_MI)), // み
+                              ("mu", format!("{}", HIRAGANA_MU)), // む
+                              ("me", format!("{}", HIRAGANA_ME)), // め
+                              ("mo", format!("{}", HIRAGANA_MO)), // も
+                              ("ya", format!("{}", HIRAGANA_YA)), // や
+                              ("yu", format!("{}", HIRAGANA_YU)), // ゆ
+                              ("yo", format!("{}", HIRAGANA_YO)), // よ
+                              ("ra", format!("{}", HIRAGANA_RA)), // ら
+                              ("ri", format!("{}", HIRAGANA_RI)), // り
+                              ("ru", format!("{}", HIRAGANA_RU)), // る
+                              ("re", format!("{}", HIRAGANA_RE)), // れ
+                              ("ro", format!("{}", HIRAGANA_RO)), // ろ
+                              ("wa", format!("{}", HIRAGANA_WA)), // わ
+                              ("kya", format!("{}", HIRAGANA_A)), // きゃ
+                              ("kyu", format!("{}", HIRAGANA_A)), // きゅ
+                              ("kyo", format!("{}", HIRAGANA_A)), // きょ
+                              ("gya", format!("{}", HIRAGANA_A)), // ぎゃ
+                              ("gyu", format!("{}", HIRAGANA_A)), // ぎゅ
+                              ("gyo", format!("{}", HIRAGANA_A)), // ぎょ
+                              ("sha", format!("{}", HIRAGANA_A)), // しゃ
+                              ("shu", format!("{}", HIRAGANA_A)), // しゅ
+                              ("sho", format!("{}", HIRAGANA_A)), // しょ
+                              ("ja", format!("{}", HIRAGANA_A)), // じゃ
+                              ("ju", format!("{}", HIRAGANA_A)), // じゅ
+                              ("jo", format!("{}", HIRAGANA_A)), // じょ
+                              ("cha", format!("{}", HIRAGANA_A)), // ちゃ
+                              ("chu", format!("{}", HIRAGANA_A)), // ちゅ
+                              ("cho", format!("{}", HIRAGANA_A)), // ちょ
+                              ("dja", format!("{}", HIRAGANA_A)), // ぢゃ
+                              ("dju", format!("{}", HIRAGANA_A)), // ぢゅ
+                              ("djo", format!("{}", HIRAGANA_A)), // ぢょ
+                              ("hya", format!("{}", HIRAGANA_A)), // ひゃ
+                              ("hyu", format!("{}", HIRAGANA_A)), // ひゅ
+                              ("hyo", format!("{}", HIRAGANA_A)), // ひょ
+                              ("bya", format!("{}", HIRAGANA_A)), // びゃ
+                              ("byu", format!("{}", HIRAGANA_A)), // びゅ
+                              ("byo", format!("{}", HIRAGANA_A)), // びょ
+                              ("pya", format!("{}", HIRAGANA_A)), // ぴゃ
+                              ("pyu", format!("{}", HIRAGANA_A)), // ぴゅ
+                              ("pyo", format!("{}", HIRAGANA_A)), // ぴょ
+                              ("nya", format!("{}", HIRAGANA_A)), // にゃ
+                              ("nyu", format!("{}", HIRAGANA_A)), // にゅ
+                              ("nyo", format!("{}", HIRAGANA_A)), // にょ
+                              ("wi", format!("{}", HIRAGANA_WI)), // ゐ
+                              ("we", format!("{}", HIRAGANA_WE)), // ゑ
+                              ("wo", format!("{}", HIRAGANA_WO)), // を
+                              ("n", format!("{}", HIRAGANA_N)), // ん
+                              ("vu", format!("{}", HIRAGANA_VU)), // ゔ
                               // lazy ass aproach to pauses (small tsu) goes here
                               //
                               // Katakana
-                              ("A", "\u{30a2}"), // ア
-                              ("I", "\u{30a4}"), // イ
-                              ("U", "\u{30a6}"), // ウ
-                              ("E", "\u{30a8}"), // エ
-                              ("O", "\u{30aa}"), // オ
-                              ("KA", "\u{30ab}"), // カ
-                              ("GA", "\u{30ac}"), // ガ
-                              ("KI", "\u{30ad}"), // キ
-                              ("GI", "\u{30ae}"), // ギ
-                              ("KU", "\u{30af}"), // ク
-                              ("GU", "\u{30b0}"), // グ
-                              ("KE", "\u{30b1}"), // ケ
-                              ("GE", "\u{30b2}"), // ゲ
-                              ("KO", "\u{30b3}"), // コ
-                              ("GO", "\u{30b4}"), // ゴ
-                              ("SA", "\u{30b5}"), // サ
-                              ("ZA", "\u{30b6}"), // ザ
-                              ("SHI", "\u{30b7}"), // シ
-                              ("JI", "\u{30b8}"), // ジ
-                              ("SU", "\u{30b9}"), // ス
-                              ("ZU", "\u{30ba}"), // ズ
-                              ("SE", "\u{30bb}"), // セ
-                              ("ZE", "\u{30bc}"), // ゼ
-                              ("SO", "\u{30bd}"), // ソ
-                              ("ZO", "\u{30be}"), // ゾ
-                              ("TA", "\u{30bf}"), // タ
-                              ("DA", "\u{30c0}"), // ダ
-                              ("CHI", "\u{30c1}"), // チ
-                              ("DJI", "\u{30c2}"), // ヂ
-                              ("TSU", "\u{30c4}"), // ツ
-                              ("DZU", "\u{30c5}"), // ヅ
-                              ("TE", "\u{30c6}"), // テ
-                              ("DE", "\u{30c7}"), // デ
-                              ("TO", "\u{30c8}"), // ト
-                              ("DO", "\u{30c9}"), // ド
-                              ("NA", "\u{30ca}"), // ナ
-                              ("NI", "\u{30cb}"), // ニ
-                              ("NU", "\u{30cc}"), // ヌ
-                              ("NE", "\u{30cd}"), // ネ
-                              ("NO", "\u{30ce}"), // ノ
-                              ("HA", "\u{30cf}"), // ハ
-                              ("BA", "\u{30d0}"), // バ
-                              ("PA", "\u{30d1}"), // パ
-                              ("HI", "\u{30d2}"), // ヒ
-                              ("BI", "\u{30d3}"), // ビ
-                              ("PI", "\u{30d4}"), // ピ
-                              ("FU", "\u{30d5}"), // フ
-                              ("BU", "\u{30d6}"), // ブ
-                              ("PU", "\u{30d7}"), // プ
-                              ("HE", "\u{30d8}"), // ヘ
-                              ("BE", "\u{30d9}"), // ベ
-                              ("PE", "\u{30da}"), // ペ
-                              ("HO", "\u{30db}"), // ホ
-                              ("BO", "\u{30dc}"), // ボ
-                              ("PO", "\u{30dd}"), // ポ
-                              ("MA", "\u{30de}"), // マ
-                              ("MI", "\u{30df}"), // ミ
-                              ("MU", "\u{30e0}"), // ム
-                              ("ME", "\u{30e1}"), // メ
-                              ("MO", "\u{30e2}"), // モ
-                              ("YA", "\u{30e4}"), // ヤ
-                              ("YU", "\u{30e6}"), // ユ
-                              ("YO", "\u{30e8}"), // ヨ
-                              ("RA", "\u{30e9}"), // ラ
-                              ("RI", "\u{30ea}"), // リ
-                              ("RU", "\u{30eb}"), // ル
-                              ("RE", "\u{30ec}"), // レ
-                              ("RO", "\u{30ed}"), // ロ
-                              ("WA", "\u{30ef}"), // ワ
-                              ("KYA", "\u{30ad}\u{30e3}"), //
-                              ("KYU", "\u{30ad}\u{30e5}"), //
-                              ("KYO", "\u{30ad}\u{30e7}"), //
-                              ("GYA", "\u{30ae}\u{30e3}"), //
-                              ("GYU", "\u{30ae}\u{30e5}"), //
-                              ("GYO", "\u{30ae}\u{30e7}"), //
-                              ("SHA", "\u{30b7}\u{30e3}"), //
-                              ("SHU", "\u{30b7}\u{30e5}"), //
-                              ("SHO", "\u{30b7}\u{30e7}"), //
-                              ("JA", "\u{30b8}\u{30e3}"), //
-                              ("JU", "\u{30b8}\u{30e5}"), //
-                              ("JO", "\u{30b8}\u{30e7}"), //
-                              ("CHA", "\u{30c1}\u{30e3}"), //
-                              ("CHU", "\u{30c1}\u{30e5}"), //
-                              ("CHO", "\u{30c1}\u{30e7}"), //
-                              ("DJA", "\u{30c2}\u{30e3}"), //
-                              ("DJU", "\u{30c2}\u{30e5}"), //
-                              ("DJO", "\u{30c2}\u{30e7}"), //
-                              ("HYA", "\u{30d2}\u{30e3}"), //
-                              ("HYU", "\u{30d2}\u{30e5}"), //
-                              ("HYO", "\u{30d2}\u{30e7}"), //
-                              ("BYA", "\u{30d3}\u{30e3}"), //
-                              ("BYU", "\u{30d3}\u{30e5}"), //
-                              ("BYO", "\u{30d3}\u{30e7}"), //
-                              ("PYA", "\u{30d4}\u{30e3}"), //
-                              ("PYU", "\u{30d4}\u{30e5}"), //
-                              ("PYO", "\u{30d4}\u{30e7}"), //
-                              ("NYA", "\u{30cb}\u{30e3}"), //
-                              ("NYU", "\u{30cb}\u{30e5}"), //
-                              ("NYO", "\u{30cb}\u{30e7}"), //
-                              ("WI", "\u{30f0}"), // ヰ
-                              ("WE", "\u{30f1}"), // ヱ
-                              ("WO", "\u{30f2}"), // ヲ
-                              ("N", "\u{30f3}"), // ン
-                              ("VU", "\u{30f4}"), // ヴ
+                              ("A", format!("{}", KATAKANA_A)), // ア
+                              ("I", format!("{}", KATAKANA_I)), // イ
+                              ("U", format!("{}", KATAKANA_U)), // ウ
+                              ("E", format!("{}", KATAKANA_E)), // エ
+                              ("O", format!("{}", KATAKANA_O)), // オ
+                              ("KA", format!("{}", KATAKANA_KA)), // カ
+                              ("GA", format!("{}", KATAKANA_GA)), // ガ
+                              ("KI", format!("{}", KATAKANA_KI)), // キ
+                              ("GI", format!("{}", KATAKANA_GI)), // ギ
+                              ("KU", format!("{}", KATAKANA_KU)), // ク
+                              ("GU", format!("{}", KATAKANA_GU)), // グ
+                              ("KE", format!("{}", KATAKANA_KE)), // ケ
+                              ("GE", format!("{}", KATAKANA_GE)), // ゲ
+                              ("KO", format!("{}", KATAKANA_KO)), // コ
+                              ("GO", format!("{}", KATAKANA_GO)), // ゴ
+                              ("SA", format!("{}", KATAKANA_SA)), // サ
+                              ("ZA", format!("{}", KATAKANA_ZA)), // ザ
+                              ("SHI", format!("{}", KATAKANA_SHI)), // シ
+                              ("JI", format!("{}", KATAKANA_JI)), // ジ
+                              ("SU", format!("{}", KATAKANA_SU)), // ス
+                              ("ZU", format!("{}", KATAKANA_ZU)), // ズ
+                              ("SE", format!("{}", KATAKANA_SE)), // セ
+                              ("ZE", format!("{}", KATAKANA_ZE)), // ゼ
+                              ("SO", format!("{}", KATAKANA_SO)), // ソ
+                              ("ZO", format!("{}", KATAKANA_ZO)), // ゾ
+                              ("TA", format!("{}", KATAKANA_TA)), // タ
+                              ("DA", format!("{}", KATAKANA_DA)), // ダ
+                              ("CHI", format!("{}", KATAKANA_CHI)), // チ
+                              ("DJI", format!("{}", KATAKANA_DJI)), // ヂ
+                              ("TSU", format!("{}", KATAKANA_TSU)), // ツ
+                              ("DZU", format!("{}", KATAKANA_DZU)), // ヅ
+                              ("TE", format!("{}", KATAKANA_TE)), // テ
+                              ("DE", format!("{}", KATAKANA_DE)), // デ
+                              ("TO", format!("{}", KATAKANA_TO)), // ト
+                              ("DO", format!("{}", KATAKANA_DO)), // ド
+                              ("NA", format!("{}", KATAKANA_NA)), // ナ
+                              ("NI", format!("{}", KATAKANA_NI)), // ニ
+                              ("NU", format!("{}", KATAKANA_NU)), // ヌ
+                              ("NE", format!("{}", KATAKANA_NE)), // ネ
+                              ("NO", format!("{}", KATAKANA_NO)), // ノ
+                              ("HA", format!("{}", KATAKANA_HA)), // ハ
+                              ("BA", format!("{}", KATAKANA_BA)), // バ
+                              ("PA", format!("{}", KATAKANA_PA)), // パ
+                              ("HI", format!("{}", KATAKANA_HI)), // ヒ
+                              ("BI", format!("{}", KATAKANA_BI)), // ビ
+                              ("PI", format!("{}", KATAKANA_PI)), // ピ
+                              ("FU", format!("{}", KATAKANA_FU)), // フ
+                              ("BU", format!("{}", KATAKANA_BU)), // ブ
+                              ("PU", format!("{}", KATAKANA_PU)), // プ
+                              ("HE", format!("{}", KATAKANA_HE)), // ヘ
+                              ("BE", format!("{}", KATAKANA_BE)), // ベ
+                              ("PE", format!("{}", KATAKANA_PE)), // ペ
+                              ("HO", format!("{}", KATAKANA_HO)), // ホ
+                              ("BO", format!("{}", KATAKANA_BO)), // ボ
+                              ("PO", format!("{}", KATAKANA_PO)), // ポ
+                              ("MA", format!("{}", KATAKANA_MA)), // マ
+                              ("MI", format!("{}", KATAKANA_MI)), // ミ
+                              ("MU", format!("{}", KATAKANA_MU)), // ム
+                              ("ME", format!("{}", KATAKANA_ME)), // メ
+                              ("MO", format!("{}", KATAKANA_MO)), // モ
+                              ("YA", format!("{}", KATAKANA_YA)), // ヤ
+                              ("YU", format!("{}", KATAKANA_YU)), // ユ
+                              ("YO", format!("{}", KATAKANA_YO)), // ヨ
+                              ("RA", format!("{}", KATAKANA_RA)), // ラ
+                              ("RI", format!("{}", KATAKANA_RI)), // リ
+                              ("RU", format!("{}", KATAKANA_RU)), // ル
+                              ("RE", format!("{}", KATAKANA_RE)), // レ
+                              ("RO", format!("{}", KATAKANA_RO)), // ロ
+                              ("WA", format!("{}", KATAKANA_WA)), // ワ
+                              ("KYA", format!("{}", KATAKANA_A)), // きゃ
+                              ("KYU", format!("{}", KATAKANA_A)), // きゅ
+                              ("KYO", format!("{}", KATAKANA_A)), // きょ
+                              ("GYA", format!("{}", KATAKANA_A)), // ぎゃ
+                              ("GYU", format!("{}", KATAKANA_A)), // ぎゅ
+                              ("GYO", format!("{}", KATAKANA_A)), // ぎょ
+                              ("SHA", format!("{}", KATAKANA_A)), // しゃ
+                              ("SHU", format!("{}", KATAKANA_A)), // しゅ
+                              ("SHO", format!("{}", KATAKANA_A)), // しょ
+                              ("JA", format!("{}", KATAKANA_A)), // じゃ
+                              ("JU", format!("{}", KATAKANA_A)), // じゅ
+                              ("JO", format!("{}", KATAKANA_A)), // じょ
+                              ("CHA", format!("{}", KATAKANA_A)), // ちゃ
+                              ("CHU", format!("{}", KATAKANA_A)), // ちゅ
+                              ("CHO", format!("{}", KATAKANA_A)), // ちょ
+                              ("DJA", format!("{}", KATAKANA_A)), // ぢゃ
+                              ("DJU", format!("{}", KATAKANA_A)), // ぢゅ
+                              ("DJO", format!("{}", KATAKANA_A)), // ぢょ
+                              ("HYA", format!("{}", KATAKANA_A)), // ひゃ
+                              ("HYU", format!("{}", KATAKANA_A)), // ひゅ
+                              ("HYO", format!("{}", KATAKANA_A)), // ひょ
+                              ("BYA", format!("{}", KATAKANA_A)), // びゃ
+                              ("BYU", format!("{}", KATAKANA_A)), // びゅ
+                              ("BYO", format!("{}", KATAKANA_A)), // びょ
+                              ("PYA", format!("{}", KATAKANA_A)), // ぴゃ
+                              ("PYU", format!("{}", KATAKANA_A)), // ぴゅ
+                              ("PYO", format!("{}", KATAKANA_A)), // ぴょ
+                              ("NYA", format!("{}", KATAKANA_A)), // にゃ
+                              ("NYU", format!("{}", KATAKANA_A)), // にゅ
+                              ("NYO", format!("{}", KATAKANA_A)), // にょ
+                              ("WI", format!("{}", KATAKANA_WI)), // ヰ
+                              ("WE", format!("{}", KATAKANA_WE)), // ヱ
+                              ("WO", format!("{}", KATAKANA_WO)), // ヲ
+                              ("N", format!("{}", KATAKANA_N)), // ン
+                              ("VU", format!("{}", KATAKANA_VU)), // ヴ
                               // lazy ass aproach to long vowels in Katakana
-                              ("AA", "\u{30a2}\u{30fc}"), // アー
-                              ("II", "\u{30a4}\u{30fc}"), // イー
-                              ("UU", "\u{30a6}\u{30fc}"), // ウー
-                              ("EE", "\u{30a8}\u{30fc}"), // エー
-                              ("OO", "\u{30aa}\u{30fc}"), // オー
+                              ("AA", format!("{}{}", KATAKANA_A, PUNCTUATION_CHOONPU)), // アー
+                              ("II", format!("{}{}", KATAKANA_I, PUNCTUATION_CHOONPU)), // イー
+                              ("UU", format!("{}{}", KATAKANA_U, PUNCTUATION_CHOONPU)), // ウー
+                              ("EE", format!("{}{}", KATAKANA_E, PUNCTUATION_CHOONPU)), // エー
+                              ("OO", format!("{}{}", KATAKANA_O, PUNCTUATION_CHOONPU)), // オー
                               // lazy ass aproach to pauses (small tsu) goes here
                               //
                               // Punctuation
-                              (".", "\u{3002}"), // 。
-                              (",", "\u{3001}"), // 、
-                              ("!", "\u{ff01}"), // ！
-                              ("?", "\u{ff1f}"), // ？
-                              ("-", "\u{30fc}") /* ー */])
+                              (".", format!("{}", PUNCTUATION_PERIOD)), // 。
+                              (",", format!("{}", PUNCTUATION_COMMA)), // 、
+                              ("!", format!("{}", PUNCTUATION_EMARK)), // ！
+                              ("?", format!("{}", PUNCTUATION_QMARK)), // ？
+                              ("-", format!("{}", PUNCTUATION_CHOONPU)) /* ー */])
                 .into_iter()
-                .map(|(k, v)| (k.to_string(), v.to_string()))
+                .map(|(k, v)| (k.to_string(), v))
                 .collect();
         ret
     }
