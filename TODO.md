@@ -1,21 +1,31 @@
 # Dictionary
 
+List:
  - [X] Punctuation
+ - [X] Hiragana
+     - [X] Without diacritics
+     - [X] With diacritics
+ - [X] Katakana
+     - [X] Without diacritics
+     - [X] With diacritics
+
+Table:
+ - [ ] Punctuation
  - [ ] Hiragana
      - [ ] Monographs
-         - [X] Diacritics
+         - [ ] Diacritics
          - [ ] Pauses (small tsu)
      - [ ] Digraphs
-         - [X] Diacritics
+         - [ ] Diacritics
          - [ ] Pauses (small tsu)
  - [ ] Katakana
      - [ ] Monographs
-         - [X] Diacritics
-         - [X] Long vowels
+         - [ ] Diacritics
+         - [ ] Long vowels
          - [ ] Pauses (small tsu)
              - [ ] Long vowels
      - [ ] Digraphs
-         - [X] Diacritics
-         - [X] Long vowels
+         - [ ] Diacritics
+         - [ ] Long vowels
          - [ ] Pauses (small tsu)
              - [ ] Long vowels
