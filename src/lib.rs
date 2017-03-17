@@ -1,31 +1,3 @@
-// gen_convert :: Dict -> String -> String
-// gen_convert d s = concat $ map (f d) (words s)
-//     where f = (\(d, w) -> concat $ map (convert_syllable d) (syllables w)
-
-// syllables :: Dict -> String -> [String]
-// syllables _ [] = []
-// syllables d s@(x:xs)
-//     | fst cond = (fst $ snd $ cond):(syllables d (snd $ snd $ cond))
-//     | otherwise = [x]:(syllables d xs)
-//     where
-//          max = let len = length s in if (>) len 3 then 3 else len
-//       -- aux :: Int -> Dict -> String -> (Bool, (String, String))
-//          aux 0 _ _ = (False, ([], []))
-//          aux _ _ [] = (False, ([], []))
-//          aux n d s
-//              | contains_key d (take n s) = (True, (take n s, drop n s))
-//              | otherwise = aux (n-1) d s
-//          cond = aux max d s
-
-// to_hiragana :: Dict -> String -> String
-// to_hiragana d = (gen_convert d) . to_lowercase
-
-// to_katakana :: Dict -> String -> String
-// to_katakana d = (gen_convert d) . to_uppercase
-
-// to_kana :: Dict -> String -> String
-// to_kana = gen_convert
-
 use std::cmp;
 
 extern crate kana;
