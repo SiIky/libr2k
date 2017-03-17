@@ -102,7 +102,7 @@ fn normalize(s: &String) -> String {
 }
 
 // Converts a String (expected to be a syllable) to kana.
-pub fn convert_syllable(d: &Dict, ow: &String) -> String {
+fn convert_syllable(d: &Dict, ow: &String) -> String {
     // <pingveno> Because String impls Borrow<str>
     // `&ow.to_string()` => `ow`
     match d.get(ow) {
