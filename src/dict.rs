@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 use std::collections::HashMap;
 
 pub type Dict = HashMap<String, String>;
@@ -259,6 +260,11 @@ impl KanaConversionTable for Dict {
                               ("re", format!("{}", HIRAGANA_RE)), // れ
                               ("ro", format!("{}", HIRAGANA_RO)), // ろ
                               ("wa", format!("{}", HIRAGANA_WA)), // わ
+                              ("wi", format!("{}", HIRAGANA_WI)), // ゐ
+                              ("we", format!("{}", HIRAGANA_WE)), // ゑ
+                              ("wo", format!("{}", HIRAGANA_WO)), // を
+                              ("n", format!("{}", HIRAGANA_N)), // ん
+                              ("vu", format!("{}", HIRAGANA_VU)), // ゔ
                               ("kya", format!("{}", HIRAGANA_A)), // きゃ
                               ("kyu", format!("{}", HIRAGANA_A)), // きゅ
                               ("kyo", format!("{}", HIRAGANA_A)), // きょ
@@ -289,11 +295,6 @@ impl KanaConversionTable for Dict {
                               ("nya", format!("{}", HIRAGANA_A)), // にゃ
                               ("nyu", format!("{}", HIRAGANA_A)), // にゅ
                               ("nyo", format!("{}", HIRAGANA_A)), // にょ
-                              ("wi", format!("{}", HIRAGANA_WI)), // ゐ
-                              ("we", format!("{}", HIRAGANA_WE)), // ゑ
-                              ("wo", format!("{}", HIRAGANA_WO)), // を
-                              ("n", format!("{}", HIRAGANA_N)), // ん
-                              ("vu", format!("{}", HIRAGANA_VU)), // ゔ
                               // lazy ass aproach to pauses (small tsu) goes here
                               //
                               // Katakana
@@ -366,6 +367,11 @@ impl KanaConversionTable for Dict {
                               ("RE", format!("{}", KATAKANA_RE)), // レ
                               ("RO", format!("{}", KATAKANA_RO)), // ロ
                               ("WA", format!("{}", KATAKANA_WA)), // ワ
+                              ("WI", format!("{}", KATAKANA_WI)), // ヰ
+                              ("WE", format!("{}", KATAKANA_WE)), // ヱ
+                              ("WO", format!("{}", KATAKANA_WO)), // ヲ
+                              ("N", format!("{}", KATAKANA_N)), // ン
+                              ("VU", format!("{}", KATAKANA_VU)), // ヴ
                               ("KYA", format!("{}", KATAKANA_A)), // きゃ
                               ("KYU", format!("{}", KATAKANA_A)), // きゅ
                               ("KYO", format!("{}", KATAKANA_A)), // きょ
@@ -396,11 +402,6 @@ impl KanaConversionTable for Dict {
                               ("NYA", format!("{}", KATAKANA_A)), // にゃ
                               ("NYU", format!("{}", KATAKANA_A)), // にゅ
                               ("NYO", format!("{}", KATAKANA_A)), // にょ
-                              ("WI", format!("{}", KATAKANA_WI)), // ヰ
-                              ("WE", format!("{}", KATAKANA_WE)), // ヱ
-                              ("WO", format!("{}", KATAKANA_WO)), // ヲ
-                              ("N", format!("{}", KATAKANA_N)), // ン
-                              ("VU", format!("{}", KATAKANA_VU)), // ヴ
                               // lazy ass aproach to long vowels in Katakana
                               ("AA", format!("{}{}", KATAKANA_A, PUNCTUATION_CHOONPU)), // アー
                               ("II", format!("{}{}", KATAKANA_I, PUNCTUATION_CHOONPU)), // イー
