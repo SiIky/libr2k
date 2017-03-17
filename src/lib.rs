@@ -6,13 +6,13 @@ use kana::Kana;
 pub mod dict;
 use dict::{Dict, KanaConversionTable};
 
-pub enum ConvType {
-    Auto(String),
-    Hira(String),
-    Kata(String),
+pub enum ConvType<T> {
+    Auto(T),
+    Hira(T),
+    Kata(T),
 }
 
-pub fn to_kana(d: &Dict, s: ConvType) -> String {
+pub fn to_kana(d: &Dict, s: ConvType<String>) -> String {
     let s = match s {
         ConvType::Auto(s) => s,
         ConvType::Hira(s) => s.to_lowercase(),
