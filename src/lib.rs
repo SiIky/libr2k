@@ -6,6 +6,7 @@ use kana::Kana;
 pub mod dict;
 use dict::{Dict, KanaConversionTable};
 
+#[derive(Copy, Clone, Debug)]
 pub enum ConvType<T> {
     Auto(T),
     Hira(T),
