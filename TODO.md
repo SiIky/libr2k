@@ -12,9 +12,9 @@ List:
 Table:
  - [ ] Punctuation
  - [ ] Hiragana
-     - [ ] Monographs
-         - [ ] Diacritics
-         - [ ] Pauses (small tsu)
+     - [X] Monographs
+         - [X] Diacritics
+         - [X] Pauses (small tsu)
      - [ ] Digraphs
          - [ ] Diacritics
          - [ ] Pauses (small tsu)
