@@ -1,7 +1,7 @@
 use std::cmp;
 
 extern crate kana;
-use kana::Kana;
+use kana::{combine, half2kana, nowidespace, nowideyen, wide2ascii};
 
 pub mod dict;
 use dict::{Dict, KanaConversionTable};
@@ -32,6 +32,7 @@ fn convert(d: &Dict, s: &String) -> String {
             .iter()
             .map(|ref s| convert_syllable(d, &s))
             .collect();
+
         for syl in ss {
             ret.push_str(syl.as_str());
         }
@@ -61,10 +62,6 @@ fn syllables(d: &Dict, original: &String) -> Vec<String> {
         }
     }
 
-    // if a match wasn't found, add the first char to ret
-    // let mut taken: Vec<String> = vec![original.chars().take(1).collect()];
-    // ret.append(&mut taken);
-
     let taken: String = original.chars().take(1).collect();
     ret.push(taken);
 
@@ -91,15 +88,14 @@ fn choose_kana(s: &String) -> String {
 }
 
 fn normalize(s: &String) -> String {
-    let k = Kana::init();
     let mut ret: String = s.clone();
 
-    ret = kana::nowidespace(ret.as_str());
-    ret = kana::nowideyen(ret.as_str());
-    ret = kana::wide2ascii(ret.as_str());
+    ret = nowidespace(ret.as_str());
+    ret = nowideyen(ret.as_str());
+    ret = wide2ascii(ret.as_str());
 
-    ret = k.combine(ret.as_str());
-    ret = k.half2kana(ret.as_str());
+    ret = combine(ret.as_str());
+    ret = half2kana(ret.as_str());
 
     ret
 }
