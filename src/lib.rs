@@ -29,7 +29,7 @@
 use std::cmp;
 
 extern crate kana;
-use kana::Kana;
+use kana::{combine, half2kana, nowidespace, nowideyen, wide2ascii};
 
 pub mod dict;
 use dict::Dict;
@@ -117,14 +117,15 @@ fn choose_kana(s: &String) -> String {
 }
 
 fn normalize(s: &String) -> String {
-    let k = Kana::init();
-    let mut ret: String = kana::nowidespace(s.as_str());
+    let ret: String = s.clone();
 
-    ret = kana::nowideyen(ret.as_str());
-    ret = kana::wide2ascii(ret.as_str());
+    nowidespace(ret.as_str());
 
-    ret = k.combine(ret.as_str());
-    ret = k.half2kana(ret.as_str());
+    nowideyen(ret.as_str());
+    wide2ascii(ret.as_str());
+
+    combine(ret.as_str());
+    half2kana(ret.as_str());
 
     ret
 }
