@@ -28,15 +28,15 @@ fn convert(d: &Dict, s: &String) -> String {
 
     for w in normalize(s).split_whitespace() {
         let w: String = choose_kana(&w.to_string());
-        let ss: Vec<String> = syllables(&d, &w)
+
+        let w: String = syllables(&d, &w)
             .iter()
             .map(|ref s| convert_syllable(d, &s))
             .collect();
 
-        for syl in ss {
-            ret.push_str(syl.as_str());
-        }
+        ret.push_str(w.as_str());
     }
+
     ret
 }
 
@@ -45,28 +45,25 @@ fn syllables(d: &Dict, original: &String) -> Vec<String> {
         return vec![];
     }
 
+    let mut n: usize = 1;
     let mut ret: Vec<String> = vec![];
     let maxlen = cmp::min(original.chars().count(), d.max_len()) + 1;
 
-    for l in (1..maxlen).rev() {
+    // find a syllable
+    for l in (1..maxlen).rev() { // [1, 2, .., maxlen-1].rev()
         let tmp: String = original.chars().take(l).collect();
 
         if is_syllable(d, &tmp) {
-            ret.push(tmp);
-            let skipped: String = original.chars().skip(l).collect();
-            let mut rest = syllables(d, &skipped);
-
-            ret.append(&mut rest);
-
-            return ret;
+            n = l;
+            break;
         }
     }
 
-    let taken: String = original.chars().take(1).collect();
+    let taken: String = original.chars().take(n).collect();
     ret.push(taken);
 
-    let skipped: String = original.chars().skip(1).collect();
-    let mut rest = syllables(d, &skipped);
+    let skipped: String = original.chars().skip(n).collect();
+    let mut rest: Vec<String> = syllables(d, &skipped);
     ret.append(&mut rest);
 
     ret

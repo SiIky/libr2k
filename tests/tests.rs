@@ -1,5 +1,6 @@
 extern crate libr2k;
 
+use libr2k::ConvType;
 use libr2k::dict::{Dict, KanaConversionTable};
 
 #[cfg(test)]
@@ -137,7 +138,7 @@ fn test1() {
          Nokoshite Girl\n(I was in love with you my girl)\n(I was in love)"
             .to_string();
 
-    let output: String = libr2k::to_kana(&d, &input);
+    let output: String = libr2k::to_kana(&d, ConvType::Auto(input.clone()));
     assert!(input != output);
 }
 
@@ -146,8 +147,8 @@ fn test2() {
     let d: Dict = Dict::dnew();
     let input: String = "kan'i kani".to_string();
 
-    let kana: String = libr2k::to_kana(&d, &input);
-    let hira: String = libr2k::to_hiragana(&d, &input);
+    let kana: String = libr2k::to_kana(&d, ConvType::Auto(input.clone()));
+    let hira: String = libr2k::to_kana(&d, ConvType::Hira(input.clone()));
 
     let should_be: String = "かん'いかに".to_string();
 
@@ -159,14 +160,14 @@ fn test2() {
 fn test3() {
     let d: Dict = Dict::dnew();
 
-    let input: Vec<String> = (vec!["ka", "shi", "i", "sa", "さ"])
+    let input: Vec<String> = vec!["ka", "shi", "i", "sa", "さ"]
         .iter()
         .map(|s| s.to_string())
-        .map(|s| libr2k::convert_syllable(&d, &s))
+        .map(|s| libr2k::to_kana(&d, ConvType::Auto(s)))
         .collect();
 
     let should_be: Vec<String> =
-        (vec!["か", "し", "い", "さ", "さ"]).iter().map(|s| s.to_string()).collect();
+        vec!["か", "し", "い", "さ", "さ"].iter().map(|s| s.to_string()).collect();
 
     assert_eq!(input, should_be);
 }
