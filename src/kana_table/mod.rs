@@ -389,8 +389,9 @@ impl KanaTable {
 
     pub fn syllables(&self, s: &String) -> Vec<String> {
         let mut ret: Vec<String> = Vec::new();
+        let mut s = s.clone();
 
-        if !s.is_empty() {
+        while !s.is_empty() {
             let mut n: usize = 1;
             let maxlen = ::std::cmp::min(s.chars().count(), self.maxlen()) + 1;
             // [1, 2, .., maxlen-1].rev()
@@ -426,9 +427,7 @@ impl KanaTable {
             };
 
             ret.push(syl);
-
-            let mut syls: Vec<String> = self.syllables(&rest);
-            ret.append(&mut syls);
+            s = rest;
         }
 
         ret
