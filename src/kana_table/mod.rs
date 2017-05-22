@@ -6,6 +6,7 @@ use super::conv_type::ConvType::*;
 mod list;
 use self::list::*;
 
+use super::normalize::Normalize;
 use super::preprocess::PreProcess;
 
 pub struct KanaTable {
@@ -375,7 +376,6 @@ impl KanaTable {
         };
 
         ret.calc_maxlen();
-        let ret = ret;
 
         ret
     }
@@ -389,22 +389,24 @@ impl KanaTable {
 
     pub fn syllables(&self, s: &String) -> Vec<String> {
         let mut ret: Vec<String> = Vec::new();
-        let mut s = s.clone();
 
-        while !s.is_empty() {
-            let mut n: usize = 1;
-            let maxlen = ::std::cmp::min(s.chars().count(), self.maxlen()) + 1;
-            // [1, 2, .., maxlen-1].rev()
-            for len in (1..maxlen).rev() {
-                let tmp: String = s.chars().take(len).collect();
+        for word in s.split_whitespace() {
+            let mut s: String = word.to_string();
 
-                if self.is_syllable(&tmp) {
-                    n = len;
-                    break;
+            while !s.is_empty() {
+                let mut n: usize = 1;
+                let maxlen = ::std::cmp::min(s.chars().count(), self.maxlen()) + 1;
+                // [1, 2, .., maxlen-1].rev()
+                for len in (1..maxlen).rev() {
+                    let tmp: String = s.chars().take(len).collect();
+
+                    if self.is_syllable(&tmp) {
+                        n = len;
+                        break;
+                    }
                 }
-            }
 
-            /*
+                /*
                -- what i did
                let (syl, rest) = (s.chars().take(n).collect(), s.chars().skip(n).collect());
 
@@ -419,15 +421,16 @@ impl KanaTable {
                (a, b)
                };
              */
-            let (syl, rest): (String, String) = {
-                let mut chars = s.chars();
-                let syl: String = chars.by_ref().take(n).collect();
-                let rest: String = chars.collect();
-                (syl, rest)
-            };
+                let (syl, rest): (String, String) = {
+                    let mut chars = s.chars();
+                    let syl: String = chars.by_ref().take(n).collect();
+                    let rest: String = chars.collect();
+                    (syl, rest)
+                };
 
-            ret.push(syl);
-            s = rest;
+                ret.push(syl);
+                s = rest;
+            }
         }
 
         ret
@@ -438,7 +441,7 @@ impl KanaTable {
     }
 
     pub fn convert(&self, ct: ConvType<&String>) -> String {
-        self.gojira(ct.preprocess().unwrap())
+        self.gojira(ct.normalize().preprocess().unwrap())
     }
 
     pub fn to_kana(&self, s: &String) -> String {

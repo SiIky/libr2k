@@ -1,12 +1,12 @@
-extern crate libr2k;
+extern crate r2k;
 
-use libr2k::ConvType;
-use libr2k::dict::{Dict, KanaConversionTable};
+use r2k::kana_table::KanaTable;
 
 #[cfg(test)]
 #[test]
+#[should_panic]
 fn test1() {
-    let d: Dict = Dict::dnew();
+    let r2k: KanaTable = KanaTable::new();
     let input: String = "Kimi ni kirawareta kimi no Chinmoku ga kikoeta\nKimi no me no mae ni iru no ni Tooku \
          kara kikoeta\nHasshingen wo sagashitara Tadoritsuita mizutamari\nKore ga hito no kokoro \
          nara Fukasa nado wakaranai\nYobareta no ga Boku demo boku ja nai to shitemo\nDou demo ii \
@@ -138,17 +138,17 @@ fn test1() {
          Nokoshite Girl\n(I was in love with you my girl)\n(I was in love)"
             .to_string();
 
-    let output: String = libr2k::to_kana(&d, ConvType::Auto(input.clone()));
-    assert!(input != output);
+    let output: String = r2k.to_kana(&input);
+    assert_eq!(input, output);
 }
 
 #[test]
 fn test2() {
-    let d: Dict = Dict::dnew();
+    let r2k: KanaTable = KanaTable::new();
     let input: String = "kan'i kani".to_string();
 
-    let kana: String = libr2k::to_kana(&d, ConvType::Auto(input.clone()));
-    let hira: String = libr2k::to_kana(&d, ConvType::Hira(input.clone()));
+    let kana: String = r2k.to_kana(&input);
+    let hira: String = r2k.to_hira(&input);
 
     let should_be: String = "かん'いかに".to_string();
 
@@ -158,16 +158,18 @@ fn test2() {
 
 #[test]
 fn test3() {
-    let d: Dict = Dict::dnew();
+    let r2k: KanaTable = KanaTable::new();
 
     let input: Vec<String> = vec!["ka", "shi", "i", "sa", "さ"]
         .iter()
         .map(|s| s.to_string())
-        .map(|s| libr2k::to_kana(&d, ConvType::Auto(s)))
+        .map(|s| r2k.convert_syllable(&s))
         .collect();
 
-    let should_be: Vec<String> =
-        vec!["か", "し", "い", "さ", "さ"].iter().map(|s| s.to_string()).collect();
+    let should_be: Vec<String> = vec!["か", "し", "い", "さ", "さ"]
+        .iter()
+        .map(|s| s.to_string())
+        .collect();
 
     assert_eq!(input, should_be);
 }

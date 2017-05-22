@@ -5,13 +5,14 @@ use super::conv_type::ConvType;
 
 pub trait Normalize {
     type To;
-    fn normalize(&self) -> Self::To;
+
+    fn normalize(self) -> Self::To;
 }
 
 impl Normalize for String {
     type To = String;
 
-    fn normalize(&self) -> Self::To {
+    fn normalize(self) -> Self::To {
         let mut ret: Self::To = self.clone();
 
         ret = nowidespace(ret.as_str());
@@ -25,10 +26,18 @@ impl Normalize for String {
     }
 }
 
+impl Normalize for ConvType<String> {
+    type To = ConvType<String>;
+
+    fn normalize(self) -> Self::To {
+        self.map(|s| s.normalize())
+    }
+}
+
 impl<'a> Normalize for ConvType<&'a String> {
     type To = ConvType<String>;
 
-    fn normalize(&self) -> Self::To {
-        self.map(|s| s.normalize())
+    fn normalize(self) -> Self::To {
+        self.map(|s| s.to_string()).normalize()
     }
 }
