@@ -9,8 +9,9 @@ use self::list::*;
 use super::normalize::Normalize;
 use super::preprocess::PreProcess;
 
+/// The main character in the whole process.
 pub struct KanaTable {
-    map: HashMap<String, String>,
+    hmap: HashMap<String, String>,
     maxlen: usize,
 }
 
@@ -19,7 +20,7 @@ impl KanaTable {
     fn calc_maxlen(&mut self) {
         self.maxlen = 0;
 
-        for k in self.map.keys() {
+        for k in self.hmap.keys() {
             // this works because the keys are ASCII
             let klen: usize = k.len();
             self.maxlen = ::std::cmp::max(self.maxlen, klen);
@@ -40,8 +41,10 @@ impl KanaTable {
 
 // Public methods
 impl KanaTable {
+    /// Create and return a new `KanaTable` ready to be used.
     pub fn new() -> KanaTable {
-        let map: HashMap<String, String> =
+        // TODO: Complete the map
+        let hmap: HashMap<String, String> =
             vec![// # Hiragana
                  // ## Monograph
                  ("a", format!("{}", HIRA_A)), // あ
@@ -371,7 +374,7 @@ impl KanaTable {
                     .collect();
 
         let mut ret = KanaTable {
-            map: map,
+            hmap: hmap,
             maxlen: 0,
         };
 
@@ -380,17 +383,20 @@ impl KanaTable {
         ret
     }
 
+    /// Calculate the kana corresponding to given syllable,
+    /// or return back the same string if there is none.
     pub fn convert_syllable(&self, s: &String) -> String {
-        match self.map.get(s) {
-            Some(v) => v.clone(),
-            None => s.clone(),
-        }
+        match self.hmap.get(s) {
+            Some(v) => v,
+            None => s,
+        }.clone()
     }
 
-    pub fn syllables(&self, s: &String) -> Vec<String> {
+    /// Separate a string into syllables.
+    pub fn syllables(&self, o: &String) -> Vec<String> {
         let mut ret: Vec<String> = Vec::new();
 
-        for word in s.split_whitespace() {
+        for word in o.split_whitespace() {
             let mut s: String = word.to_string();
 
             while !s.is_empty() {
@@ -398,9 +404,9 @@ impl KanaTable {
                 let maxlen = ::std::cmp::min(s.chars().count(), self.maxlen()) + 1;
                 // [1, 2, .., maxlen-1].rev()
                 for len in (1..maxlen).rev() {
-                    let tmp: String = s.chars().take(len).collect();
+                    let syl: String = s.chars().take(len).collect();
 
-                    if self.is_syllable(&tmp) {
+                    if self.is_syllable(&syl) {
                         n = len;
                         break;
                     }
@@ -436,22 +442,27 @@ impl KanaTable {
         ret
     }
 
+    /// Check if a string is a valid romaji syllable.
     pub fn is_syllable(&self, syl: &String) -> bool {
-        self.map.contains_key(syl)
+        self.hmap.contains_key(syl)
     }
 
+    /// Convert a string to kana, after normalizing and preprocessing.
     pub fn convert(&self, ct: ConvType<&String>) -> String {
         self.gojira(ct.normalize().preprocess().unwrap())
     }
 
+    /// Convert a string to kana, with auto-detection.
     pub fn to_kana(&self, s: &String) -> String {
         self.convert(Auto(s))
     }
 
+    /// Convert a string to hiragana.
     pub fn to_hira(&self, s: &String) -> String {
         self.convert(Hira(s))
     }
 
+    /// Convert a string to katakana.
     pub fn to_kata(&self, s: &String) -> String {
         self.convert(Kata(s))
     }

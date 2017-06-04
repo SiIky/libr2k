@@ -3,6 +3,7 @@ use self::kana::{combine, half2kana, nowidespace, nowideyen, wide2ascii};
 
 use super::conv_type::ConvType;
 
+/// Iron out some quirks and make things more even.
 pub trait Normalize {
     type To;
 
