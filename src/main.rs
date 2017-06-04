@@ -3,6 +3,8 @@ extern crate clap;
 use clap::{App, Arg, ArgMatches, Values};
 
 extern crate r2k;
+use r2k::conv_type::ConvType::*;
+use r2k::conv_type::ConvType;
 use r2k::kana_table::KanaTable;
 
 fn main() {
@@ -13,21 +15,23 @@ fn main() {
     let kana: KanaTable = KanaTable::new();
     let matches: ArgMatches = clap();
 
-    let do_work = |s| {
-        let tmp: Option<Values> = matches.values_of(s);
+    let do_work = |ct: ConvType<&str>| {
+        let tmp: Option<Values> = matches.values_of(ct.unwrap());
         let tmp: Option<Vec<String>> = tmp.map(|x| aux(x));
-        let tmp: Option<String> = tmp.map(|x| x.iter().map(|v| kana.to_kana(&v)).collect());
-        if let Some(v) = tmp {
-            println!("{}", v);
-        };
+        let tmp: Option<String> = tmp.map(|x| x.concat());
+
+        if let Some(s) = tmp {
+            let ct = ct.map(|_| &s);
+            let tmp = kana.convert(ct);
+            println!("{}", tmp);
+        }
     };
 
-    do_work("romaji");
-    do_work("hiragana");
-    do_work("katakana");
+    do_work(Auto("romaji"));
+    do_work(Hira("hiragana"));
+    do_work(Kata("katakana"));
 }
 
-///
 /// Usage: (This comment will be used to describe the
 /// expected behavior and the program must fit this
 /// description, not the other way around)
@@ -38,7 +42,6 @@ fn main() {
 ///     NOTE: At least one of these must be used. If more than one is used:
 ///         - [X] **Process every option;** (Current behavior, makes more sense out of the two)
 ///         - [ ] ~~Check options in order and process only the first one;~~
-///
 fn clap() -> ArgMatches<'static> {
     App::new("Japanese Command-line Dictionary")
         .author(crate_authors!())
