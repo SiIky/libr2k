@@ -1,5 +1,7 @@
 data Dict
-data Type s = Auto s | Hira s | Kata s
+data Type s = Auto s
+            | Hira s
+            | Kata s
 
 toKana :: Dict -> Type String -> String
 toKana d t = genConvert d $ unwrapType t
@@ -16,17 +18,14 @@ syllables d s@(x:xs)
     | fst cond  = (:) (fst $ snd $ cond) (syllables d (snd $ snd $ cond))
     | otherwise = (:) [x]                (syllables d xs)
     where
-        max = let len = length s in
-                if (>) len 3
-                    then 3
-                    else len
+        cond = aux max d s
+        max = min 3 $ length s
         aux :: Int -> Dict -> String -> (Bool, (String, String))
-        aux 0 _ _ = (False, ([], []))
+        aux 0 _ _  = (False, ([], []))
         aux _ _ [] = (False, ([], []))
         aux n d s
             | d `containsKey` (take n s) = (True, (splitAt n s))
             | otherwise = aux (pred n) d s
-        cond = aux max d s
 
 unwrapType :: Type String -> String
 unwrapType (Auto s) = s

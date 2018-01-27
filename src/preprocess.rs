@@ -26,7 +26,7 @@ impl PreProcess for ConvType<String> {
     type To = ConvType<String>;
 
     fn preprocess(self) -> Self::To {
-        self.map3w(|x| x.preprocess(), /* A */
+        self.map3w(|x| x.preprocess(),   /* A */
                    |x| x.to_lowercase(), /* H */
                    |x| x.to_uppercase()) /* K */
     }

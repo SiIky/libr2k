@@ -18,12 +18,14 @@ fn main() {
     let do_work = |ct: ConvType<&str>| {
         let tmp: Option<Values> = matches.values_of(ct.unwrap());
         let tmp: Option<Vec<String>> = tmp.map(|x| aux(x));
-        let tmp: Option<String> = tmp.map(|x| x.concat());
 
-        if let Some(s) = tmp {
-            let ct = ct.map(|_| &s);
-            let tmp = kana.convert(ct);
-            println!("{}", tmp);
+        if let Some(v) = tmp {
+            for s in v {
+                let ct = ct.map(|_| &s);
+                let res = kana.convert(ct);
+                print!("{}", res);
+            }
+            println!();
         }
     };
 
@@ -48,23 +50,25 @@ fn clap() -> ArgMatches<'static> {
         .version(crate_version!())
         .about("Romaji to Kana converter")
         .help_short("H")
-        .args(&[Arg::with_name("romaji")
-                    .long("romaji")
-                    .short("r")
-                    .takes_value(true)
-                    .multiple(true)
-                    .help("Convert romaji to kana."),
-                Arg::with_name("hiragana")
-                    .long("hiragana")
-                    .short("h")
-                    .takes_value(true)
-                    .multiple(true)
-                    .help("Convert romaji to hiragana."),
-                Arg::with_name("katakana")
-                    .long("katakana")
-                    .short("k")
-                    .takes_value(true)
-                    .multiple(true)
-                    .help("Convert romaji to katakana.")])
+        .args(&[
+            Arg::with_name("romaji")
+                .long("romaji")
+                .short("r")
+                .takes_value(true)
+                .multiple(true)
+                .help("Convert romaji to kana."),
+            Arg::with_name("hiragana")
+                .long("hiragana")
+                .short("h")
+                .takes_value(true)
+                .multiple(true)
+                .help("Convert romaji to hiragana."),
+            Arg::with_name("katakana")
+                .long("katakana")
+                .short("k")
+                .takes_value(true)
+                .multiple(true)
+                .help("Convert romaji to katakana."),
+        ])
         .get_matches()
 }
