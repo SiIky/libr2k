@@ -10,10 +10,7 @@ use r2k::conv_type::ConvType;
 
 fn main() {
     fn choose_conv_type(m: &ArgMatches) -> ConvType<()> {
-        match (
-            m.is_present("hiragana"),
-            m.is_present("katakana"),
-        ) {
+        match (m.is_present("hiragana"), m.is_present("katakana")) {
             (true, _) => ConvType::Hira(()),
             (_, true) => ConvType::Kata(()),
             _ => ConvType::Auto(()),
@@ -55,16 +52,23 @@ fn main() {
     }
 }
 
+///
 /// Usage: (This comment will be used to describe the
 /// expected behavior and the program must fit this
 /// description, not the other way around)
 ///
-/// - [X] `-r`: Autodetect and convert words according to case;
+/// ```
+/// r2k [ -h | -k ] [TEXT]...
+/// ```
+///
+/// If either `-h` or `-k` is given, convert text to hiragana
+///     or katakana respectively, otherwise, autodetect.
+/// If `TEXT` is not present, read from `stdin`.
+///
 /// - [X] `-h`: Don't autodetect, convert everything to hiragana;
 /// - [X] `-k`: Don't autodetect, convert everything to katakana;
-///     NOTE: At least one of these must be used. If more than one is used:
-///         - [X] **Process every option;** (Current behavior, makes more sense out of the two)
-///         - [ ] ~~Check options in order and process only the first one;~~
+/// NOTE: Only one of these may be used.
+///
 fn clap() -> ArgMatches<'static> {
     App::new("Japanese Command-line Dictionary")
         .author(crate_authors!())
