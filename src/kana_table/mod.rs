@@ -154,105 +154,105 @@ impl KanaTable {
             ("pyo", format!("{}{}", HIRA_PI, HIRA_SMALL_YO)),  // ぴょ
             ("nya", format!("{}{}", HIRA_NI, HIRA_SMALL_YA)),  // にゃ
             ("nyu", format!("{}{}", HIRA_NI, HIRA_SMALL_YU)),  // にゅ
-            ("nyo", format!("{}{}", HIRA_NI, HIRA_SMALL_YO)), // にょ
+            ("nyo", format!("{}{}", HIRA_NI, HIRA_SMALL_YO)),  // にょ
 
             // ## Pauses (small tsu)
-            ("kka",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KA)),  // か
-            ("gga",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GA)),  // が
-            ("kki",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KI)),  // き
-            ("ggi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GI)),  // ぎ
-            ("kku",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KU)),  // く
-            ("ggu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GU)),  // ぐ
-            ("kke",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KE)),  // け
-            ("gge",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GE)),  // げ
-            ("kko",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KO)),  // こ
-            ("ggo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GO)),  // ご
-            ("ssa",  format!("{}{}", HIRA_SMALL_TSU, HIRA_SA)),  // さ
-            ("zza",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ZA)),  // ざ
-            ("sshi", format!("{}{}", HIRA_SMALL_TSU, HIRA_SHI)), // し
-            ("jji",  format!("{}{}", HIRA_SMALL_TSU, HIRA_JI)),  // じ
-            ("ssu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_SU)),  // す
-            ("zzu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ZU)),  // ず
-            ("sse",  format!("{}{}", HIRA_SMALL_TSU, HIRA_SE)),  // せ
-            ("zze",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ZE)),  // ぜ
-            ("sso",  format!("{}{}", HIRA_SMALL_TSU, HIRA_SO)),  // そ
-            ("zzo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ZO)),  // ぞ
-            ("tta",  format!("{}{}", HIRA_SMALL_TSU, HIRA_TA)),  // た
-            ("dda",  format!("{}{}", HIRA_SMALL_TSU, HIRA_DA)),  // だ
-            ("cchi", format!("{}{}", HIRA_SMALL_TSU, HIRA_CHI)), // ち
-            ("ddji", format!("{}{}", HIRA_SMALL_TSU, HIRA_DJI)), // ぢ
-            ("ttsu", format!("{}{}", HIRA_SMALL_TSU, HIRA_TSU)), // つ
-            ("ddzu", format!("{}{}", HIRA_SMALL_TSU, HIRA_DZU)), // づ
-            ("tte",  format!("{}{}", HIRA_SMALL_TSU, HIRA_TE)),  // て
-            ("dde",  format!("{}{}", HIRA_SMALL_TSU, HIRA_DE)),  // で
-            ("tto",  format!("{}{}", HIRA_SMALL_TSU, HIRA_TO)),  // と
-            ("ddo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_DO)),  // ど
+            ("kka",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KA)),  // っか
+            ("gga",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GA)),  // っが
+            ("kki",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KI)),  // っき
+            ("ggi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GI)),  // っぎ
+            ("kku",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KU)),  // っく
+            ("ggu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GU)),  // っぐ
+            ("kke",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KE)),  // っけ
+            ("gge",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GE)),  // っげ
+            ("kko",  format!("{}{}", HIRA_SMALL_TSU, HIRA_KO)),  // っこ
+            ("ggo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_GO)),  // っご
+            ("ssa",  format!("{}{}", HIRA_SMALL_TSU, HIRA_SA)),  // っさ
+            ("zza",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ZA)),  // っざ
+            ("sshi", format!("{}{}", HIRA_SMALL_TSU, HIRA_SHI)), // っし
+            ("jji",  format!("{}{}", HIRA_SMALL_TSU, HIRA_JI)),  // っじ
+            ("ssu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_SU)),  // っす
+            ("zzu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ZU)),  // っず
+            ("sse",  format!("{}{}", HIRA_SMALL_TSU, HIRA_SE)),  // っせ
+            ("zze",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ZE)),  // っぜ
+            ("sso",  format!("{}{}", HIRA_SMALL_TSU, HIRA_SO)),  // っそ
+            ("zzo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ZO)),  // っぞ
+            ("tta",  format!("{}{}", HIRA_SMALL_TSU, HIRA_TA)),  // った
+            ("dda",  format!("{}{}", HIRA_SMALL_TSU, HIRA_DA)),  // っだ
+            ("cchi", format!("{}{}", HIRA_SMALL_TSU, HIRA_CHI)), // っち
+            ("ddji", format!("{}{}", HIRA_SMALL_TSU, HIRA_DJI)), // っぢ
+            ("ttsu", format!("{}{}", HIRA_SMALL_TSU, HIRA_TSU)), // っつ
+            ("ddzu", format!("{}{}", HIRA_SMALL_TSU, HIRA_DZU)), // っづ
+            ("tte",  format!("{}{}", HIRA_SMALL_TSU, HIRA_TE)),  // って
+            ("dde",  format!("{}{}", HIRA_SMALL_TSU, HIRA_DE)),  // っで
+            ("tto",  format!("{}{}", HIRA_SMALL_TSU, HIRA_TO)),  // っと
+            ("ddo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_DO)),  // っど
             ("nna",  format!("{}{}", HIRA_N, HIRA_NA)),          // んな
             ("nni",  format!("{}{}", HIRA_N, HIRA_NI)),          // んに
             ("nnu",  format!("{}{}", HIRA_N, HIRA_NU)),          // んぬ
             ("nne",  format!("{}{}", HIRA_N, HIRA_NE)),          // んね
             ("nno",  format!("{}{}", HIRA_N, HIRA_NO)),          // んの
-            ("hha",  format!("{}{}", HIRA_SMALL_TSU, HIRA_HA)),  // は
-            ("bba",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BA)),  // ば
-            ("ppa",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PA)),  // ぱ
-            ("hhi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_HI)),  // ひ
-            ("bbi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BI)),  // び
-            ("ppi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PI)),  // ぴ
-            ("ffu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_FU)),  // ふ
-            ("bbu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BU)),  // ぶ
-            ("ppu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PU)),  // ぷ
-            ("hhe",  format!("{}{}", HIRA_SMALL_TSU, HIRA_HE)),  // へ
-            ("bbe",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BE)),  // べ
-            ("ppe",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PE)),  // ぺ
-            ("hho",  format!("{}{}", HIRA_SMALL_TSU, HIRA_HO)),  // ほ
-            ("bbo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BO)),  // ぼ
-            ("ppo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PO)),  // ぽ
-            ("mma",  format!("{}{}", HIRA_SMALL_TSU, HIRA_MA)),  // ま
-            ("mmi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_MI)),  // み
-            ("mmu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_MU)),  // む
-            ("mme",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ME)),  // め
-            ("mmo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_MO)),  // も
-            ("yya",  format!("{}{}", HIRA_SMALL_TSU, HIRA_YA)),  // や
-            ("yyu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_YU)),  // ゆ
-            ("yyo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_YO)),  // よ
-            ("rra",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RA)),  // ら
-            ("rri",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RI)),  // り
-            ("rru",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RU)),  // る
-            ("rre",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RE)),  // れ
-            ("rro",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RO)),  // ろ
-            ("vvu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_VU)),  // ゔ
+            ("hha",  format!("{}{}", HIRA_SMALL_TSU, HIRA_HA)),  // っは
+            ("bba",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BA)),  // っば
+            ("ppa",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PA)),  // っぱ
+            ("hhi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_HI)),  // っひ
+            ("bbi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BI)),  // っび
+            ("ppi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PI)),  // っぴ
+            ("ffu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_FU)),  // っふ
+            ("bbu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BU)),  // っぶ
+            ("ppu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PU)),  // っぷ
+            ("hhe",  format!("{}{}", HIRA_SMALL_TSU, HIRA_HE)),  // っへ
+            ("bbe",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BE)),  // っべ
+            ("ppe",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PE)),  // っぺ
+            ("hho",  format!("{}{}", HIRA_SMALL_TSU, HIRA_HO)),  // っほ
+            ("bbo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_BO)),  // っぼ
+            ("ppo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_PO)),  // っぽ
+            ("mma",  format!("{}{}", HIRA_SMALL_TSU, HIRA_MA)),  // っま
+            ("mmi",  format!("{}{}", HIRA_SMALL_TSU, HIRA_MI)),  // っみ
+            ("mmu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_MU)),  // っむ
+            ("mme",  format!("{}{}", HIRA_SMALL_TSU, HIRA_ME)),  // っめ
+            ("mmo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_MO)),  // っも
+            ("yya",  format!("{}{}", HIRA_SMALL_TSU, HIRA_YA)),  // っや
+            ("yyu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_YU)),  // っゆ
+            ("yyo",  format!("{}{}", HIRA_SMALL_TSU, HIRA_YO)),  // っよ
+            ("rra",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RA)),  // っら
+            ("rri",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RI)),  // っり
+            ("rru",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RU)),  // っる
+            ("rre",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RE)),  // っれ
+            ("rro",  format!("{}{}", HIRA_SMALL_TSU, HIRA_RO)),  // っろ
+            ("vvu",  format!("{}{}", HIRA_SMALL_TSU, HIRA_VU)),  // っゔ
 
             // ## Digraph
-            ("kkya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_KI, HIRA_SMALL_YA)),  // きゃ
-            ("kkyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_KI, HIRA_SMALL_YU)),  // きゅ
-            ("kkyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_KI, HIRA_SMALL_YO)),  // きょ
-            ("ggya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_GI, HIRA_SMALL_YA)),  // ぎゃ
-            ("ggyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_GI, HIRA_SMALL_YU)),  // ぎゅ
-            ("ggyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_GI, HIRA_SMALL_YO)),  // ぎょ
-            ("ssha", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_SHI, HIRA_SMALL_YA)), // しゃ
-            ("sshu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_SHI, HIRA_SMALL_YU)), // しゅ
-            ("ssho", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_SHI, HIRA_SMALL_YO)), // しょ
-            ("jja",  format!("{}{}{}", HIRA_SMALL_TSU, HIRA_JI, HIRA_SMALL_YA)),  // じゃ
-            ("jju",  format!("{}{}{}", HIRA_SMALL_TSU, HIRA_JI, HIRA_SMALL_YU)),  // じゅ
-            ("jjo",  format!("{}{}{}", HIRA_SMALL_TSU, HIRA_JI, HIRA_SMALL_YO)),  // じょ
-            ("ccha", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_CHI, HIRA_SMALL_YA)), // ちゃ
-            ("cchu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_CHI, HIRA_SMALL_YU)), // ちゅ
-            ("ccho", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_CHI, HIRA_SMALL_YO)), // ちょ
-            ("ddja", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_DJI, HIRA_SMALL_YA)), // ぢゃ
-            ("ddju", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_DJI, HIRA_SMALL_YU)), // ぢゅ
-            ("ddjo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_DJI, HIRA_SMALL_YO)), // ぢょ
-            ("hhya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_HI, HIRA_SMALL_YA)),  // ひゃ
-            ("hhyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_HI, HIRA_SMALL_YU)),  // ひゅ
-            ("hhyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_HI, HIRA_SMALL_YO)),  // ひょ
-            ("bbya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_BI, HIRA_SMALL_YA)),  // びゃ
-            ("bbyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_BI, HIRA_SMALL_YU)),  // びゅ
-            ("bbyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_BI, HIRA_SMALL_YO)),  // びょ
-            ("ppya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_PI, HIRA_SMALL_YA)),  // ぴゃ
-            ("ppyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_PI, HIRA_SMALL_YU)),  // ぴゅ
-            ("ppyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_PI, HIRA_SMALL_YO)),  // ぴょ
-            ("nnya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_NI, HIRA_SMALL_YA)),  // にゃ
-            ("nnyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_NI, HIRA_SMALL_YU)),  // にゅ
-            ("nnyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_NI, HIRA_SMALL_YO)),  // にょ
+            ("kkya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_KI, HIRA_SMALL_YA)),  // っきゃ
+            ("kkyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_KI, HIRA_SMALL_YU)),  // っきゅ
+            ("kkyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_KI, HIRA_SMALL_YO)),  // っきょ
+            ("ggya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_GI, HIRA_SMALL_YA)),  // っぎゃ
+            ("ggyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_GI, HIRA_SMALL_YU)),  // っぎゅ
+            ("ggyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_GI, HIRA_SMALL_YO)),  // っぎょ
+            ("ssha", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_SHI, HIRA_SMALL_YA)), // っしゃ
+            ("sshu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_SHI, HIRA_SMALL_YU)), // っしゅ
+            ("ssho", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_SHI, HIRA_SMALL_YO)), // っしょ
+            ("jja",  format!("{}{}{}", HIRA_SMALL_TSU, HIRA_JI, HIRA_SMALL_YA)),  // っじゃ
+            ("jju",  format!("{}{}{}", HIRA_SMALL_TSU, HIRA_JI, HIRA_SMALL_YU)),  // っじゅ
+            ("jjo",  format!("{}{}{}", HIRA_SMALL_TSU, HIRA_JI, HIRA_SMALL_YO)),  // っじょ
+            ("ccha", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_CHI, HIRA_SMALL_YA)), // っちゃ
+            ("cchu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_CHI, HIRA_SMALL_YU)), // っちゅ
+            ("ccho", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_CHI, HIRA_SMALL_YO)), // っちょ
+            ("ddja", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_DJI, HIRA_SMALL_YA)), // っぢゃ
+            ("ddju", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_DJI, HIRA_SMALL_YU)), // っぢゅ
+            ("ddjo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_DJI, HIRA_SMALL_YO)), // っぢょ
+            ("hhya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_HI, HIRA_SMALL_YA)),  // っひゃ
+            ("hhyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_HI, HIRA_SMALL_YU)),  // っひゅ
+            ("hhyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_HI, HIRA_SMALL_YO)),  // っひょ
+            ("bbya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_BI, HIRA_SMALL_YA)),  // っびゃ
+            ("bbyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_BI, HIRA_SMALL_YU)),  // っびゅ
+            ("bbyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_BI, HIRA_SMALL_YO)),  // っびょ
+            ("ppya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_PI, HIRA_SMALL_YA)),  // っぴゃ
+            ("ppyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_PI, HIRA_SMALL_YU)),  // っぴゅ
+            ("ppyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_PI, HIRA_SMALL_YO)),  // っぴょ
+            ("nnya", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_NI, HIRA_SMALL_YA)),  // っにゃ
+            ("nnyu", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_NI, HIRA_SMALL_YU)),  // っにゅ
+            ("nnyo", format!("{}{}{}", HIRA_SMALL_TSU, HIRA_NI, HIRA_SMALL_YO)),  // っにょ
 
             // # Katakana
             ("A",   format!("{}", KATA_A)),   // ア
@@ -362,6 +362,72 @@ impl KanaTable {
             ("NYU", format!("{}{}", KATA_NI, KATA_SMALL_YU)),  // にゅ
             ("NYO", format!("{}{}", KATA_NI, KATA_SMALL_YO)),  // にょ
 
+            // ## Pauses (small tsu)
+            ("KKA",  format!("{}{}", KATA_SMALL_TSU, KATA_KA)),  // ッカ
+            ("GGA",  format!("{}{}", KATA_SMALL_TSU, KATA_GA)),  // ッガ
+            ("KKI",  format!("{}{}", KATA_SMALL_TSU, KATA_KI)),  // ッキ
+            ("GGI",  format!("{}{}", KATA_SMALL_TSU, KATA_GI)),  // ッギ
+            ("KKU",  format!("{}{}", KATA_SMALL_TSU, KATA_KU)),  // ック
+            ("GGU",  format!("{}{}", KATA_SMALL_TSU, KATA_GU)),  // ッグ
+            ("KKE",  format!("{}{}", KATA_SMALL_TSU, KATA_KE)),  // ッケ
+            ("GGE",  format!("{}{}", KATA_SMALL_TSU, KATA_GE)),  // ッゲ
+            ("KKO",  format!("{}{}", KATA_SMALL_TSU, KATA_KO)),  // ッコ
+            ("GGO",  format!("{}{}", KATA_SMALL_TSU, KATA_GO)),  // ッゴ
+            ("SSA",  format!("{}{}", KATA_SMALL_TSU, KATA_SA)),  // ッサ
+            ("ZZA",  format!("{}{}", KATA_SMALL_TSU, KATA_ZA)),  // ッザ
+            ("SSHI", format!("{}{}", KATA_SMALL_TSU, KATA_SHI)), // ッシ
+            ("JJI",  format!("{}{}", KATA_SMALL_TSU, KATA_JI)),  // ッジ
+            ("SSU",  format!("{}{}", KATA_SMALL_TSU, KATA_SU)),  // ッス
+            ("ZZU",  format!("{}{}", KATA_SMALL_TSU, KATA_ZU)),  // ッズ
+            ("SSE",  format!("{}{}", KATA_SMALL_TSU, KATA_SE)),  // ッセ
+            ("ZZE",  format!("{}{}", KATA_SMALL_TSU, KATA_ZE)),  // ッゼ
+            ("SSO",  format!("{}{}", KATA_SMALL_TSU, KATA_SO)),  // ッソ
+            ("ZZO",  format!("{}{}", KATA_SMALL_TSU, KATA_ZO)),  // ッゾ
+            ("TTA",  format!("{}{}", KATA_SMALL_TSU, KATA_TA)),  // ッタ
+            ("DDA",  format!("{}{}", KATA_SMALL_TSU, KATA_DA)),  // ッダ
+            ("CCHI", format!("{}{}", KATA_SMALL_TSU, KATA_CHI)), // ッチ
+            ("DDJI", format!("{}{}", KATA_SMALL_TSU, KATA_DJI)), // ッヂ
+            ("TTSU", format!("{}{}", KATA_SMALL_TSU, KATA_TSU)), // ッツ
+            ("DDZU", format!("{}{}", KATA_SMALL_TSU, KATA_DZU)), // ッヅ
+            ("TTE",  format!("{}{}", KATA_SMALL_TSU, KATA_TE)),  // ッテ
+            ("DDE",  format!("{}{}", KATA_SMALL_TSU, KATA_DE)),  // ッデ
+            ("TTO",  format!("{}{}", KATA_SMALL_TSU, KATA_TO)),  // ット
+            ("DDO",  format!("{}{}", KATA_SMALL_TSU, KATA_DO)),  // ッド
+            ("NNA",  format!("{}{}", KATA_N, KATA_NA)),          // ンナ
+            ("NNI",  format!("{}{}", KATA_N, KATA_NI)),          // ンニ
+            ("NNU",  format!("{}{}", KATA_N, KATA_NU)),          // ンヌ
+            ("NNE",  format!("{}{}", KATA_N, KATA_NE)),          // ンネ
+            ("NNO",  format!("{}{}", KATA_N, KATA_NO)),          // ンノ
+            ("HHA",  format!("{}{}", KATA_SMALL_TSU, KATA_HA)),  // ッハ
+            ("BBA",  format!("{}{}", KATA_SMALL_TSU, KATA_BA)),  // ッバ
+            ("PPA",  format!("{}{}", KATA_SMALL_TSU, KATA_PA)),  // ッパ
+            ("HHI",  format!("{}{}", KATA_SMALL_TSU, KATA_HI)),  // ッヒ
+            ("BBI",  format!("{}{}", KATA_SMALL_TSU, KATA_BI)),  // ッビ
+            ("PPI",  format!("{}{}", KATA_SMALL_TSU, KATA_PI)),  // ッピ
+            ("FFU",  format!("{}{}", KATA_SMALL_TSU, KATA_FU)),  // ッフ
+            ("BBU",  format!("{}{}", KATA_SMALL_TSU, KATA_BU)),  // ッブ
+            ("PPU",  format!("{}{}", KATA_SMALL_TSU, KATA_PU)),  // ップ
+            ("HHE",  format!("{}{}", KATA_SMALL_TSU, KATA_HE)),  // ッヘ
+            ("BBE",  format!("{}{}", KATA_SMALL_TSU, KATA_BE)),  // ッベ
+            ("PPE",  format!("{}{}", KATA_SMALL_TSU, KATA_PE)),  // ッペ
+            ("HHO",  format!("{}{}", KATA_SMALL_TSU, KATA_HO)),  // ッホ
+            ("BBO",  format!("{}{}", KATA_SMALL_TSU, KATA_BO)),  // ッボ
+            ("PPO",  format!("{}{}", KATA_SMALL_TSU, KATA_PO)),  // ッポ
+            ("MMA",  format!("{}{}", KATA_SMALL_TSU, KATA_MA)),  // ッマ
+            ("MMI",  format!("{}{}", KATA_SMALL_TSU, KATA_MI)),  // ッミ
+            ("MMU",  format!("{}{}", KATA_SMALL_TSU, KATA_MU)),  // ッム
+            ("MME",  format!("{}{}", KATA_SMALL_TSU, KATA_ME)),  // ッメ
+            ("MMO",  format!("{}{}", KATA_SMALL_TSU, KATA_MO)),  // ッモ
+            ("YYA",  format!("{}{}", KATA_SMALL_TSU, KATA_YA)),  // ッヤ
+            ("YYU",  format!("{}{}", KATA_SMALL_TSU, KATA_YU)),  // ッユ
+            ("YYO",  format!("{}{}", KATA_SMALL_TSU, KATA_YO)),  // ッヨ
+            ("RRA",  format!("{}{}", KATA_SMALL_TSU, KATA_RA)),  // ッラ
+            ("RRI",  format!("{}{}", KATA_SMALL_TSU, KATA_RI)),  // ッリ
+            ("RRU",  format!("{}{}", KATA_SMALL_TSU, KATA_RU)),  // ッル
+            ("RRE",  format!("{}{}", KATA_SMALL_TSU, KATA_RE)),  // ッレ
+            ("RRO",  format!("{}{}", KATA_SMALL_TSU, KATA_RO)),  // ッロ
+            ("VVU",  format!("{}{}", KATA_SMALL_TSU, KATA_VU)),  // ッヴ
+
             // lazy ass aproach to long vowels in Katakana
             // Maybe do a :substitute passage instead
             // https://doc.rust-lang.org/regex/regex/struct.Regex.html
@@ -372,7 +438,6 @@ impl KanaTable {
             ("EE", format!("{}{}", KATA_E, PUNCT_CHOONPU)), // エー
             ("OO", format!("{}{}", KATA_O, PUNCT_CHOONPU)), // オー
 
-            // ## Pauses (small tsu)
             // Punctuation
             (".", format!("{}", PUNCT_PERIOD)),  // 。
             (",", format!("{}", PUNCT_COMMA)),   // 、

@@ -1,37 +1,58 @@
+use std::io::{stdin, BufRead};
+
 #[macro_use]
 extern crate clap;
-use clap::{App, Arg, ArgMatches, Values};
+use clap::{App, Arg, ArgMatches};
 
 extern crate r2k;
-use r2k::conv_type::ConvType::*;
-use r2k::conv_type::ConvType;
 use r2k::kana_table::KanaTable;
+use r2k::conv_type::ConvType;
 
 fn main() {
-    fn aux(vals: Values) -> Vec<String> {
-        vals.into_iter().map(|x| x.to_string()).collect()
-    }
-
-    let kana: KanaTable = KanaTable::new();
-    let matches: ArgMatches = clap();
-
-    let do_work = |ct: ConvType<&str>| {
-        let tmp: Option<Values> = matches.values_of(ct.unwrap());
-        let tmp: Option<Vec<String>> = tmp.map(|x| aux(x));
-
-        if let Some(v) = tmp {
-            for s in v {
-                let ct = ct.map(|_| &s);
-                let res = kana.convert(ct);
-                print!("{}", res);
-            }
-            println!();
+    fn choose_conv_type(m: &ArgMatches) -> ConvType<()> {
+        match (
+            m.is_present("hiragana"),
+            m.is_present("katakana"),
+        ) {
+            (true, _) => ConvType::Hira(()),
+            (_, true) => ConvType::Kata(()),
+            _ => ConvType::Auto(()),
         }
     };
 
-    do_work(Auto("romaji"));
-    do_work(Hira("hiragana"));
-    do_work(Kata("katakana"));
+    let kana: KanaTable = KanaTable::new();
+    let matches: ArgMatches = clap();
+    let ct = choose_conv_type(&matches);
+
+    let convert2str = |txt| {
+        let ct = ct.map(|_| &txt);
+        let res = kana.convert(ct);
+        format!("{}", res)
+    };
+
+    if matches.is_present("TEXT") {
+        let v: Vec<String> = matches
+            .values_of("TEXT")
+            .unwrap()
+            .into_iter()
+            .map(|x| x.to_string())
+            .collect();
+
+        for s in v {
+            print!("{}", convert2str(s));
+        }
+
+        println!();
+    } else {
+        let stdin = stdin();
+
+        for line in stdin.lock().lines() {
+            match line {
+                Ok(line) => print!("{}\n", convert2str(line)),
+                Err(e) => println!("{}", e),
+            }
+        }
+    }
 }
 
 /// Usage: (This comment will be used to describe the
@@ -51,24 +72,17 @@ fn clap() -> ArgMatches<'static> {
         .about("Romaji to Kana converter")
         .help_short("H")
         .args(&[
-            Arg::with_name("romaji")
-                .long("romaji")
-                .short("r")
-                .takes_value(true)
-                .multiple(true)
-                .help("Convert romaji to kana."),
             Arg::with_name("hiragana")
+                .conflicts_with("katakana")
+                .help("Convert romaji to hiragana.")
                 .long("hiragana")
-                .short("h")
-                .takes_value(true)
-                .multiple(true)
-                .help("Convert romaji to hiragana."),
+                .short("h"),
             Arg::with_name("katakana")
+                .conflicts_with("hiragana")
+                .help("Convert romaji to katakana.")
                 .long("katakana")
-                .short("k")
-                .takes_value(true)
-                .multiple(true)
-                .help("Convert romaji to katakana."),
+                .short("k"),
+            Arg::with_name("TEXT").multiple(true),
         ])
         .get_matches()
 }
